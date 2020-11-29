@@ -12,7 +12,7 @@ function Home() {
   return (
     <Layout
       description="The ultimate resource to prepare for JavaScript Interviews">
-      <header className={clsx('hero', styles.heroBanner)}>
+      <header className={styles.heroBanner}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>

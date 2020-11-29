@@ -31,7 +31,7 @@ module.exports = {
       ],
     },
     footer: {
-      style: "dark",
+      style: "light",
       copyright: `Copyright © ${new Date().getFullYear()} Cracking JavaScript`,
     },
   },
