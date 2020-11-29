@@ -9,6 +9,11 @@ module.exports = {
   organizationName: "abhishekjakhar",
   projectName: "cracking-javascript",
   themeConfig: {
+    prism: {
+      defaultLanguage: 'javascript',
+      theme: require('prism-react-renderer/themes/nightOwl'),
+      darkTheme: require('prism-react-renderer/themes/nightOwl'),
+    },
     navbar: {
       title: "Cracking JavaScript",
       items: [
