@@ -5,6 +5,18 @@ sidebar_label: Types
 slug: /
 ---
 
+## Is JavaScript a dynamically typed or statically typed language?
+
+JavaScript is dynamically typed language. The interpreter assigns variables a type at runtime based on the variable's value at the time.
+
+```js
+    let foo = 24;   // foo is a number
+    foo = 'bar';    // foo is now a string
+    foo = true;     // foo is now a boolean
+```
+
+---
+
 ## What are different data types in JavaScript?
 
 **Primitive Types**
