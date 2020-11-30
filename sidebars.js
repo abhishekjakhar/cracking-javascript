@@ -12,10 +12,11 @@ module.exports = {
     "promises",
     "iterators",
     "generators",
+    "performance",
     {
       type: 'category',
       label: 'Algorithm',
-      items: ['strings', 'arrays'],
+      items: ['strings', 'arrays', 'sorting', 'searching'],
     }
   ]
 };
