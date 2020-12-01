@@ -10,9 +10,9 @@ slug: /
 JavaScript is dynamically typed language. The interpreter assigns variables a type at runtime based on the variable's value at the time.
 
 ```js
-    let foo = 24;   // foo is a number
-    foo = 'bar';    // foo is now a string
-    foo = true;     // foo is now a boolean
+let foo = 24; // foo is a number
+foo = "bar"; // foo is now a string
+foo = true; // foo is now a boolean
 ```
 
 ---
@@ -21,18 +21,17 @@ JavaScript is dynamically typed language. The interpreter assigns variables a ty
 
 **Primitive Types**
 
-* undefined
-* Boolean
-* Number
-* String
-* Symbol
-* BigInt
-* null (seemingly primitive)
-
+- undefined
+- Boolean
+- Number
+- String
+- Symbol
+- BigInt
+- null (seemingly primitive)
 
 **Structural Types**
 
-* Objects
+- Objects
 
 :::note
 In JavaScript variables don't have types, values do.
@@ -55,10 +54,10 @@ All primitives are immutable. They can be replaced but, but they can't be direct
 **undeclared:** variable that has not been formally declared in any scope that we have access to.
 
 ```js
-    let a;
+let a;
 
-    a;  // undefined
-    b;  // ReferenceError: b is not defined
+a; // undefined
+b; // ReferenceError: b is not defined
 ```
 
 ---
@@ -68,23 +67,23 @@ All primitives are immutable. They can be replaced but, but they can't be direct
 typeof operator is our first way of looking at a value and determining it's type.
 
 ```js
-    let v;
-    typeof v;   // "undefined"
+let v;
+typeof v; // "undefined"
 
-    v = "1"
-    typeof v;   // "string"
+v = "1";
+typeof v; // "string"
 
-    v = 2;
-    typeof v;   // "number"
+v = 2;
+typeof v; // "number"
 
-    v = {};
-    typeof v;   // "object"
+v = {};
+typeof v; // "object"
 
-    v = Symbol();
-    typeof v;   // "symbol"
+v = Symbol();
+typeof v; // "symbol"
 
-    v = true;
-    typeof v;   // "boolean"
+v = true;
+typeof v; // "boolean"
 ```
 
 :::note
@@ -93,3 +92,12 @@ This is an operator that guarantees it will always return a string. typeof opera
 
 ---
 
+## Write a functin to check if number is integer or not?
+
+```js
+function isInteger(value) {
+  return (
+    typeof value === "number" && isFinite(value) && Math.floor(value) === value;
+  );
+}
+```

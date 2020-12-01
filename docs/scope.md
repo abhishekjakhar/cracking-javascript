@@ -4,6 +4,12 @@ title: Scope
 sidebar_label: Scope
 ---
 
+## What is hoisting?
+
+
+
+---
+
 ## var vs let vs const?
 
 ### var
