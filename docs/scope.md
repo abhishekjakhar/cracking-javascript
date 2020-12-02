@@ -32,6 +32,12 @@ IIFE stands for immediately invoked function expression.
 
 ---
 
+## What is hoisting?
+
+https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/
+
+---
+
 ## var vs let vs const?
 
 ### var
@@ -70,3 +76,15 @@ IIFE stands for immediately invoked function expression.
    const c = 3;
    c = 4; // TypeError: Assignment to constant variable
    ```
+
+---
+
+## Difference between TypeError and ReferenceError?
+
+### ReferenceError
+
+A reference error occur when you try to us a variable that doesn't exist at all.
+
+### TypeError
+
+A type error occurs when the variable exists, but the operation you're trying to perform is not legal for the type of value it contains.
