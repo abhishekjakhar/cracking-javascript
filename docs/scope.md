@@ -79,12 +79,41 @@ https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures
 
 ---
 
+## Justify the output of code given below?
+
+```js
+   const name = 'foo';
+   name = 'bar';        // TypeError
+
+   const names = ["foo", "bar"];
+   names[0] = "baz";    // Allowed
+   console.log(names);  // ["baz", "bar"];
+```
+
+When we think about const we're thinking to ourselves is a thing that doesn't change, but const is a variable that can't be reassigned, those are two entirely different things.
+
+On line 1 we are declaraing a const "name" that can't be reassigned, so we get an error on line 2. But, when we declare a mutable value like an array on line 4, we are not trying to reassign names on line 5, instead we are mutating the value which is allowed.
+
+What the const keyword is actually saying, from a semantic perspective is, for the rest of this block, I promise I will not get reassigned.
+
 ## Difference between TypeError and ReferenceError?
+
+### TypeError
+
+A type error occurs when the variable exists, but the operation you're trying to perform is not legal for the type of value it contains.
 
 ### ReferenceError
 
 A reference error occur when you try to us a variable that doesn't exist at all.
 
-### TypeError
+## What is block scoping?
 
-A type error occurs when the variable exists, but the operation you're trying to perform is not legal for the type of value it contains.
+:::note
+All curly braces are not scope., they are only a scope if they have a let or a const inside of them. 
+:::
+
+## When do you prefer to use var over let?
+
+If you have a variable that belongs to the entire scope of the function, the correct semantic way to signal to your read is not to use a let at the top level of your function scope, but to use a var.
+
+lets are supposed to signal a very localized usage of a variable, ideally only within a couple of lines of code.
