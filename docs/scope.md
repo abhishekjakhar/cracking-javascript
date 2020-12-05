@@ -34,6 +34,8 @@ IIFE stands for immediately invoked function expression.
 
 ## What is hoisting?
 
+The process of assigning variable declarations a default value of undefined during the creation phase is called Hoisting.
+
 https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/
 
 ---

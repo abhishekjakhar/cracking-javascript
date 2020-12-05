@@ -4,4 +4,6 @@ title: Closures
 sidebar_label: Closures
 ---
 
-This section is WIP
+## What is a closure?
+
+## Have you used closure before, give example?
