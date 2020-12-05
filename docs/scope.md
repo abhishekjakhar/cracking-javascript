@@ -114,6 +114,6 @@ All curly braces are not scope., they are only a scope if they have a let or a c
 
 ## When do you prefer to use var over let?
 
-If you have a variable that belongs to the entire scope of the function, the correct semantic way to signal to your read is not to use a let at the top level of your function scope, but to use a var.
+If you have a variable that belongs to the entire scope of the function, the correct semantic way to signal to your reader is not to use a let at the top level of your function scope, but to use a var.
 
 lets are supposed to signal a very localized usage of a variable, ideally only within a couple of lines of code.
