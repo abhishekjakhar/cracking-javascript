@@ -36,6 +36,23 @@ IIFE stands for immediately invoked function expression.
 
 The process of assigning variable declarations a default value of undefined during the creation phase is called Hoisting.
 
+```jsx
+console.log('firstName: ', firstName)     // firstName: undefined
+console.log('lastName: ', lastName)       // lastName: undefined
+console.log('printName :', printName)     // printName: ƒ printName() {}
+
+var firstName = 'John'
+var lastName = 'Doe'
+
+function printName() {
+   console.log(`${firstName} ${lastName}`);
+}
+```
+
+:::note
+Nothing is actually hoisted or move around
+:::
+
 https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/
 
 ---
@@ -92,7 +109,7 @@ https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures
    console.log(names);  // ["baz", "bar"];
 ```
 
-When we think about const we're thinking to ourselves is a thing that doesn't change, but const is a variable that can't be reassigned, those are two entirely different things.
+When we think about const we're thinking to ourselves, it is a thing that doesn't change, but const is a variable that can't be reassigned, those are two entirely different things.
 
 On line 1 we are declaraing a const "name" that can't be reassigned, so we get an error on line 2. But, when we declare a mutable value like an array on line 4, we are not trying to reassign names on line 5, instead we are mutating the value which is allowed.
 
