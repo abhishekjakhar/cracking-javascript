@@ -33,7 +33,38 @@ IIFE is a function expression which is created and called immediately. So, the c
 })();
 ```
 
+The benefit of using IIFE is we are not polluting the enclosing scope, because the variables or function defined inside of IIFE cannot be accessed outside the IIFE.
+
 ---
+
+## Write the given below code snippet with block instead of IIFE
+
+```js title="IIFE"
+var firstName = 'Naruto';
+
+(function() {
+   var lastName = 'Uzumaki';
+   console.log(lastName);     // Uzumaki
+})();
+
+console.log(firstName);       // Naruto
+```
+
+```js title="Block"
+var firstName = 'Naruto';
+
+{
+   let lastName = 'Uzumaki';
+   console.log(lastName);     // Uzumaki
+}
+
+console.log(firstName);       // Naruto
+```
+
+
+:::note
+Blocks are not scope until they have let or const inside of them
+:::
 
 ## What is hoisting?
 
