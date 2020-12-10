@@ -24,9 +24,12 @@ this === window; //true
 
 IIFE stands for immediately invoked function expression.
 
+IIFE is a function expression which is created and called immediately. So, the code inside IIFE executes right away and has it's own private variables.
+
 ```js
-(function () {
-  console.log("IIFE");
+(function() {
+   var name = 'John';
+   console.log(name);
 })();
 ```
 
