@@ -44,15 +44,15 @@ Whenever we’re trying to figure out what the this keyword is referencing we ne
 The first argument you pass into `call()` will be the context in which function is invoked.
 
 ```js
-    const user = {
-     name: 'Abhishek'   
-    }
+const user = {
+    name: 'Abhishek'   
+}
 
-    function greet() {
-        alert(`Heyo, my name is ${this.name}`)
-    }
+function greet() {
+    alert(`Heyo, my name is ${this.name}`)
+}
 
-    greet.call(user);   // Heyo, my name is Abhishek
+greet.call(user);   // Heyo, my name is Abhishek
 ```
 
 ### apply()
@@ -60,17 +60,17 @@ The first argument you pass into `call()` will be the context in which function 
 `apply` is exact same thing as call, but instead of passing in arguments one by one, you can pass in a single array and it will spread each element in the array out for you as arguments to function.
 
 ```js
-    const languages = ['HTML', 'CSS', 'JavaScript'];
-    const user = {
-        name: 'Abhishek'
-    }
+const languages = ['HTML', 'CSS', 'JavaScript'];
+const user = {
+    name: 'Abhishek'
+}
 
-    function greet(l1, l2, l3) {
-        alert(`Heyo, my name is ${this.name} and I know ${l1}, ${l2} and ${l3}`)
-    }
+function greet(l1, l2, l3) {
+    alert(`Heyo, my name is ${this.name} and I know ${l1}, ${l2} and ${l3}`)
+}
 
-    // greet.call(user, languages[0], languages[1], languages[2]);
-    greet.apply(user, languages);   // Heyo, my name is Abhishek and I know HTML, CSS and JavaScript
+// greet.call(user, languages[0], languages[1], languages[2]);
+greet.apply(user, languages);   // Heyo, my name is Abhishek and I know HTML, CSS and JavaScript
 ```
 
 ### bind()
@@ -78,15 +78,15 @@ The first argument you pass into `call()` will be the context in which function 
 `bind` is the exact same as `call` but instead of immediately invoking the function, it will return a new function that you can invoke at a later time.
 
 ```js
-    const languages = ['HTML', 'CSS', 'JavaScript'];
-    const user = {
-        name: 'Abhishek'
-    }
+const languages = ['HTML', 'CSS', 'JavaScript'];
+const user = {
+    name: 'Abhishek'
+}
 
-    function greet(l1, l2, l3) {
-        alert(`Heyo, my name is ${this.name} and I know ${l1}, ${l2} and ${l3}`)
-    }
+function greet(l1, l2, l3) {
+    alert(`Heyo, my name is ${this.name} and I know ${l1}, ${l2} and ${l3}`)
+}
 
-    const newGreetFn = greet.bind(user, languages[0], languages[1], languages[2]);
-    newGreetFn();  // Heyo, my name is Abhishek and I know HTML, CSS and JavaScript
+const newGreetFn = greet.bind(user, languages[0], languages[1], languages[2]);
+newGreetFn();  // Heyo, my name is Abhishek and I know HTML, CSS and JavaScript
 ```
