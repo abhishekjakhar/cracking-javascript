@@ -90,3 +90,61 @@ function greet(l1, l2, l3) {
 const newGreetFn = greet.bind(user, languages[0], languages[1], languages[2]);
 newGreetFn();  // Heyo, my name is Abhishek and I know HTML, CSS and JavaScript
 ```
+
+## How does 'this' keyword behaves differently in arrow functions?
+
+An arrow function does not define a 'this' keyword of it's own, which means if you put a 'this' keyword inside of an arrow function, it's gonna behave exactly like any other variable, which means it's going to lexically resolve to some enclosing scope that does define 'this' key word.
+
+## What are reference values in JavaScript?
+
+anything that is "typeof" "object" is a reference value in JavaScript
+
+* objects
+* arrays
+* functions
+
+## Explain the output of code given below
+
+```js
+let ladoo = {
+    type: 'Dog',
+    name: 'Ladoo'
+}
+
+let kali = ladoo;
+
+kali.name = 'Kali';
+
+console.log(ladoo.name);    // kali
+console.log(kali.name);     // kali
+```
+We created a variable called `ladoo` and assign it to an object which has two properties, `type` and `name`. Then we created a new variable called `kali` and assign it, whatever the in-memory value of `ladoo` is, which is the reference to the spot in memory where the `ladoo` object is located. Now, both `ladoo` and `kali` are referencing the same spot in memory. What that means is when we modify `kali.name`, it's as if we also modified `laddo.name` because they are referencing same spot in memory. That's why when we log `ladoo.name` and `kali.name` we get the same value, `kali`.
+
+## Explain the output of code given below
+
+```js
+let a = {
+    firstName: 'Naruto',
+    lastName: 'Uzumaki'
+}
+
+let b = {
+    firstName: 'Naruto',
+    lastName: 'Uzumaki'
+}
+
+a == b  // ?
+a === b // ?
+```
+
+In the example given above a and b are reference values, in JavaScript reference values are compared by their reference, or their location in memory. Now, even though a and b are having same properties and values, they're occupying different locations in memory.
+
+```js
+a == b  // false
+a === b // false
+```
+
+## What is shallow equality?
+## What is deep equality?
+
+## Write a custom function to compare two objects in JavaScript?
