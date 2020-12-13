@@ -145,6 +145,48 @@ a === b // false
 ```
 
 ## What is shallow equality?
+
+## Write a function to perform shallow equality on two objects
+
+```js
+function shallowEqual(obj1, obj2) {
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+
+    if (keys1.length !== keys2.length) return false;
+
+    for (const key of keys1) {
+        if (obj1[key] !== obj2[key]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
 ## What is deep equality?
 
-## Write a custom function to compare two objects in JavaScript?
+## Write a function to perform deep equality on two objects
+
+```js
+function deepEqual(obj1, obj2) {
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+
+    if (keys1.length !== keys2.length) return false;
+
+    for (const key of keys1) {
+        const val1 = obj1[key];
+        const val2 = obj2[key];
+        const areObjects = isObject(val1) && isObject(val2);
+        if (
+            areObjects && !deepEqual(val1, val2) || 
+            !areObjects && (val1 !== val2)
+        ) {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
