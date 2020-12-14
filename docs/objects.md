@@ -146,6 +146,8 @@ a === b // false
 
 ## What is shallow equality?
 
+In shallow equality check of objects we get the list of properties of both Objects, then we check the propertie's values for equality.
+
 ## Write a function to perform shallow equality on two objects
 
 ```js
@@ -164,7 +166,32 @@ function shallowEqual(obj1, obj2) {
     return true;
 }
 ```
+
+## When does shallow equality does not work well?
+
+If the properties values of objects are primitive values, then shallow equality works very well. But, if the properties values are objects, then shallow equality does not work well. In the example given below the nested objects `dog1.features` and `dog2.features` are having different location in memory. Thus the shallow equality considers that `dog1.features` and `dog2.features` are different values.
+
+```js
+const dog1 = {
+    name: 'Ladoo',
+    features: {
+        color: 'White'
+    }
+}
+
+const dog2 = {
+    name: 'Ladoo',
+    features: {
+        color: 'White'
+    }
+}
+
+shallowEqual(dog1, dog2)    // false
+```
+
 ## What is deep equality?
+
+The deep equality is similar to the shallow equality, but there is one difference. During the shallow equality check, if the compared value of properties are objects, a recursive shallow equality check is performed on these nested objects.
 
 ## Write a function to perform deep equality on two objects
 
