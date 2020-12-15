@@ -37,3 +37,51 @@ const addTwo = (num) => {
 
 map([1,2,3], addTwo);   // [3,4,5]
 ```
+
+## Create following functions
+
+#### Create a function called `map` that takes two inputs:
+* an array of numbers
+* a callback function - a function that is applied to each element of the array
+
+`map` return a new array filled with numbers that are the result of using the 'callback' function on each element of the input array
+
+```js title="map"
+function map(array, callback) {
+    let result = [];
+    for (let elem of array) {
+        result.push(callback(elem));
+    }
+    return result;
+}
+```
+
+#### Create a function called `forEach` that takes two inputs:
+1. an array
+2. a callback function - a function that is applied to each element of the array
+
+`forEach` does not return anything
+
+```js title="forEach"
+function forEach(array, callback) {
+    for (let elem of array) {
+        callback(elem);
+    }
+}
+```
+
+#### Create a function called `reduce` that takes three input:
+1. an array
+2. a callback function
+3. initial value
+
+`reduce` takes an array and reduces the elements to a single value. For example it can sum all the numbers, multiply them, or any operation that you can put into a function.
+
+```js title="reduce"
+function reduce(array, callback, initialValue) {
+    for (let elem of array) {
+        initialValue = callback(initialValue, elem);
+    }
+    return initialValue;
+}
+```
