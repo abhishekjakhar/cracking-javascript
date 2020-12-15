@@ -40,7 +40,7 @@ map([1,2,3], addTwo);   // [3,4,5]
 
 ## Create following functions
 
-#### Create a function called `map` that takes two inputs:
+### Create a function called `map` that takes two inputs:
 * an array of numbers
 * a callback function - a function that is applied to each element of the array
 
@@ -56,7 +56,7 @@ function map(array, callback) {
 }
 ```
 
-#### Create a function called `forEach` that takes two inputs:
+### Create a function called `forEach` that takes two inputs:
 1. an array
 2. a callback function - a function that is applied to each element of the array
 
@@ -70,7 +70,7 @@ function forEach(array, callback) {
 }
 ```
 
-#### Create a function called `reduce` that takes three input:
+### Create a function called `reduce` that takes three input:
 1. an array
 2. a callback function
 3. initial value

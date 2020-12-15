@@ -7,6 +7,7 @@ module.exports = {
     "modules",
     "currying",
     "objects",
+    "immutability",
     "prototypes",
     "callbacks",
     "promises",
