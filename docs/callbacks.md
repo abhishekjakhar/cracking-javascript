@@ -85,3 +85,32 @@ function reduce(array, callback, initialValue) {
     return initialValue;
 }
 ```
+
+## What are arrow functions?
+
+An arrow function is a compact alternative to traditional function.
+
+* they are more concise than the tranditional functions
+* they manage 'this' keyword differently
+
+```js
+// Traditional Function
+function multiplyBy2(input) {
+    return input * 2 
+};
+```
+```js
+// Remove the word "function" and place arrow between the argument and opening body bracket
+const multiplyBy2 = (input) => { return input * 2 };
+```
+```js
+// Remove the body brackets and word "return" -- the return is implied
+const multiplyBy2 = (input) => input * 2;
+```
+```js
+// Remove the argument parenthesis
+const multiplyBy2 = input => input * 2;
+```
+```js
+const output = multiplayBy2(3); // 6
+```
