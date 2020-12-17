@@ -9,6 +9,7 @@ module.exports = {
     "objects",
     "immutability",
     "prototypes",
+    "asynchrony",
     "callbacks",
     "promises",
     "iterators",

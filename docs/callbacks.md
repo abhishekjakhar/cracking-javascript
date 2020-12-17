@@ -114,3 +114,33 @@ const multiplyBy2 = input => input * 2;
 ```js
 const output = multiplayBy2(3); // 6
 ```
+
+## What is callback hell?
+
+In JavaScript the only way to delay a computation so that it runs after the asynchronous call completes is to put the delayed code inside a callback function.
+
+```js
+getData(callbackFunction(x) {
+    getMoreData(anotherCallbackFunction(y) {
+        updateUI();
+    })
+})
+```
+
+Now, in the example given above we make a asynchronous request on click of button. If request succeeds, we make a second request. If second request succeeds, we update our UI by using the data which we are getting from both the requests. This pattern leads us to the nested callbacks, which is called callback hell.
+
+## What are drawbacks of using callback?
+
+1. Callback hell
+2. Inversion of  - When you write a callback, you're assuming that the program you're giving the callback to is reponsible and will call it when it's supposed to. You're essentially inverting the the control of your program over to another program. For many third-party libraries, callback functions are the interface for how you interact with them. It’s probable that a third party library could, whether on purpose or accidentally, break how they interact with your callback.
+
+```js
+function criticalFunction () {
+  // It's critical that this function
+  // gets called and with the correct arguments
+}
+
+thirdPartyLib(criticalFunction)
+```
+
+In the example given above you're not the one calling `criticalFunction`, you have 0 control over when and with what arguments it's invoked.
