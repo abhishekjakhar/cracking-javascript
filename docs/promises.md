@@ -10,7 +10,7 @@ A promise is an object that may produce a single value some time in the future, 
 
 ## Why do promises exists?
 
-They exist to make the complexity of making asynchronous requests more manageable.
+They exist to make the complexity of making asynchronous requests more manageable. It's a pattern for managing our callbacks in a trustable fashion.
 
 ## How do you create a promise?
 
