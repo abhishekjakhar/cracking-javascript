@@ -6,7 +6,7 @@ sidebar_label: Promises
 
 ## What is a promise?
 
-A promise is an object that may produce a single value some time in the future, either a resolved value, or a reason that it's not resolved.
+A promise is an object that may produce a single value some time in the future, either a resolved value, or a reason why it's not resolved.
 
 ## Why do promises exists?
 
@@ -74,3 +74,6 @@ function sleep(duration) {
     })
 }
 ```
+
+## How does promise solves inversion of control problem?
+

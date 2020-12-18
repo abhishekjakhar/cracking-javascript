@@ -132,7 +132,7 @@ Now, in the example given above we make a asynchronous request on click of butto
 ## What are drawbacks of using callback?
 
 1. Callback hell
-2. Inversion of  - When you write a callback, you're assuming that the program you're giving the callback to is reponsible and will call it when it's supposed to. You're essentially inverting the the control of your program over to another program. For many third-party libraries, callback functions are the interface for how you interact with them. It’s probable that a third party library could, whether on purpose or accidentally, break how they interact with your callback.
+2. Inversion of control - When you write a callback, you're assuming that the program you're giving the callback to is reponsible and will call it when it's supposed to. You're essentially inverting the the control of your program over to another program. For many third-party libraries, callback functions are the interface for how you interact with them. It’s probable that a third party library could, whether on purpose or accidentally, break how they interact with your callback.
 
 ```js
 function criticalFunction () {
@@ -144,3 +144,18 @@ thirdPartyLib(criticalFunction)
 ```
 
 In the example given above you're not the one calling `criticalFunction`, you have 0 control over when and with what arguments it's invoked.
+
+## What is inversion of control?
+
+There's part of our program that we're in control of executing. There's another portion of our program that we're not in control of executing. The way we express that is to take the first half of our program that executes now and the second half of our program that executes in the callback, and when we give our callback to somebody else, that what's invert the control and it puts them in control of when and what manner to execute the second half of our program.
+
+In the example given below line 1 and 2 represents the first half of our program, and line 3 and 4 represents the second half of our program. Here, we are passing our second half of program to setTimeout which is a built in JavaScript engine facility and we don't have trust issues with setTimeout. But, if we are passing our second half of program to some another third party utility we don't know how they will run our callback and we can run into some trouble.
+
+```js
+// line 1
+setTimeout(function() {
+    // line 3
+    // line 4
+})
+// line 2
+```
