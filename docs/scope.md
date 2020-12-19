@@ -20,6 +20,8 @@ this === window; //true
 
 ---
 
+## What is difference between function declaration and function expression?
+
 ## What is IIFE, what are benefits of using IIFE pattern?
 
 IIFE stands for immediately invoked function expression.

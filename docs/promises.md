@@ -77,3 +77,9 @@ function sleep(duration) {
 
 ## How does promise solves inversion of control problem?
 
+
+## Promises also takes callbacks, how can we trust promises?
+
+* Once a promise is settled, it must have a value(which may be undefined). That value must not change. It is immutable once settled.
+
+* A fulfilled or rejected promise is settled, and must not transition into any other state. It can only be settled once.
