@@ -79,5 +79,5 @@ Working
 The callback function `work()` will get placed in Callback Queue and will only be picked up by Event Loop and pushed to Callstack, when all synchronous code is finished running and the Callstack is empty.
 
 :::note
-You could have million **console.log** in between **Started** and **Ended**, the work callback will only get called after that.
+You could have million **console.log** in between **Started** and **Ended**, the work callback will only get called after all synchronous code is finished running, which is when all million **console.log** will be finished running.
 :::
