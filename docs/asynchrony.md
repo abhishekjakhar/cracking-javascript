@@ -8,32 +8,6 @@ sidebar_label: Asynchrony
 
 It can run only one command at a time.
 
-## What will be the output of code given below?
-
-```js
-function work() {
-    console.log('Working');
-}
-
-console.log('Started');
-setTimeout(work, 0);
-console.log('Ended');
-```
-
-Although the wait time is 0 ms, the result in the browser console will be the following:
-
-```js
-Started
-Ended
-Working
-```
-
-The callback function `work()` will get placed in Callback Queue and will only be picked up by Event Loop and pushed to Callstack, when all synchronous code is finished running and the Callstack is empty.
-
-:::note
-You could have million **console.log** in between **Started** and **Ended**, the work callback will only get called after that.
-:::
-
 ## What is thunk?
 
 A thunk is a function that has everything already that it needs to do to give you some value back. You do not need to pass any arguments in, you simply call it and it will give you a value back.
@@ -81,3 +55,29 @@ The event loop says I am gonna check before every single line of code run, is th
 :::
 
 ## What is callback queue?
+
+## What will be the output of code given below?
+
+```js
+function work() {
+    console.log('Working');
+}
+
+console.log('Started');
+setTimeout(work, 0);
+console.log('Ended');
+```
+
+Although the wait time is 0 ms, the result in the browser console will be the following:
+
+```js
+Started
+Ended
+Working
+```
+
+The callback function `work()` will get placed in Callback Queue and will only be picked up by Event Loop and pushed to Callstack, when all synchronous code is finished running and the Callstack is empty.
+
+:::note
+You could have million **console.log** in between **Started** and **Ended**, the work callback will only get called after that.
+:::
