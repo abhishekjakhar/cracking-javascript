@@ -70,8 +70,6 @@ thunk(function(sum) {
 });
 ```
 
-## Difference between synchronous and asynchronous thunk?
-
 ## What is event loop?
 
 The event loop has one simple job which is to monitor the Call Stack and the Callback Queue. If the Call Stack is empty, it will take the first event from the Callback Queue and will push it to the Call Stack.
