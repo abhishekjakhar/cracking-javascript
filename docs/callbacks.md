@@ -159,3 +159,17 @@ setTimeout(function() {
 })
 // line 2
 ```
+
+## Can callbacks be synchronous?
+
+Yes, callbacks can be synchronous
+
+```js
+const gods = ['Apollo', 'Artemis', 'Ares', 'Zeus'];
+
+gods.forEach(function (eachName, index){
+  console.log(index + '. ' + eachName);
+});
+```
+
+In this example given above we loop through an array of Greek gods and print the index numbers and values to the console. The expected parameter of forEach() is a callback function, which itself takes two parameters, a reference to the array name and index values. However, it doesn't wait for anything — it runs immediately.

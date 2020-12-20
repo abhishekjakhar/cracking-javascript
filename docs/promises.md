@@ -77,6 +77,7 @@ function sleep(duration) {
 
 ## How does promise solves inversion of control problem?
 
+They are esentially a returned object to which you attach callback functions, rather than having to pass callbacks into a function, which lose full control of how the function will be executed when passing a callback to a third-party library.
 
 ## Promises also takes callbacks, how can we trust promises?
 
