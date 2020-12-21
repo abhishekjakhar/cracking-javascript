@@ -161,6 +161,30 @@ A type error occurs when the variable exists, but the operation you're trying to
 
 A reference error occur when you try to us a variable that doesn't exist at all.
 
+## Justify the output of code given below
+
+```js
+var firstName = "Naruto";
+var lastName = "Uzumaki";
+
+function getName() {
+   function getFirstName() {
+      return name;
+   }
+
+   function getLastName() {
+      return lastName;
+   }
+
+   return getFirstName() + " " + getLastName();
+}
+
+getName();  // Naruto Uzumaki
+getFirstName(); // ReferenceError: getFirstName is not defined
+```
+
+Even though `getFirstName` exist within the program, it doesn't exist in any scope that we have access to at the moment.
+
 ## What is block scoping?
 
 :::note
