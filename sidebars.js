@@ -15,6 +15,7 @@ module.exports = {
     "iterators",
     "generators",
     "performance",
+    "dom",
     {
       type: 'category',
       label: 'Algorithm',

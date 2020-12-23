@@ -4,6 +4,8 @@ title: Performance
 sidebar_label: Performance
 ---
 
+## What is a web worker? When would you use one?
+
 ## Explain Debouncing
 
 Debouncing enforces that a function not be called again until certain amount of time has passed without it being called.
@@ -51,3 +53,7 @@ function debounce(fn, delay) {
 ---
 
 ## Move element left to right by any given distance smoothly
+
+## What is memoization?
+
+## Write your own memoize function? 

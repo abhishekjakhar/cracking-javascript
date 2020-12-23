@@ -20,7 +20,13 @@ this === window; //true
 
 ---
 
+## How do we know something is function declaration?
+
+If the word function is literally the first thing in statement then it is function declaration. If it's not the first thing in the statement it is function expression.
+
 ## What is difference between function declaration and function expression?
+
+
 
 ## What is IIFE, what are benefits of using IIFE pattern?
 
