@@ -26,3 +26,22 @@ anotherDog.name = 'Kali'
 console.log(dog.name);          // Ladoo
 console.log(anotherDog.name)    // Kali
 ```
+
+## Explain output
+
+```jsx
+let obj = {
+    internal: {}
+};
+
+Object.freeze(obj);
+obj.internal.foo = 'Foo';
+
+console.log(obj.internal.foo);  // Foo
+```
+
+The object frozen using `Object.freeze()` is shallow, which means the result of calling `Object.freeze(object)` only applies to the immediate properties of `object`. If our object is having a property whose value is another object, those objects are not frozen and may be target of property addition, deletion and or value re-assignment operations.
+
+## Object.freeze() vs Object.seal()
+
+Objects sealed with `Object.seal()` can have their existing properties changed. But, existing properties in object frozen with `Object.freeze()` cannot be changed, they are made immutable.
