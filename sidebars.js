@@ -12,8 +12,6 @@ module.exports = {
     "asynchrony",
     "callbacks",
     "promises",
-    "iterators",
-    "generators",
     "performance",
     "dom",
     {
