@@ -9,8 +9,7 @@ sidebar_label: Objects
 The 'this' keyword allows you to reuse functions with different contexts.<br/>
 If you look at a function that has a 'this' keyword in it, it is assigned based upon how the function is called.
 
-
-## Explain output of code given below
+## Explain output
 
 ```js
     const user = {
@@ -36,7 +35,7 @@ The 'this' keyword is gonna end up pointing at the object that is used to invoke
 Whenever we’re trying to figure out what the this keyword is referencing we need to look to the invocation and see what’s to the “left of the dot”. In the first invocation, user is to the left of the dot which means this is going to reference user. In the second invocation, mother is to the left of the dot which means this is going to reference mother.
 :::
 
-## Explain call, bind and apply with example?
+## Explain call, bind and apply with examples
 
 ### call()
 
@@ -103,7 +102,7 @@ anything that is "typeof" "object" is a reference value in JavaScript
 * arrays
 * functions
 
-## Explain the output of code given below
+## Explain output
 
 ```js
 let ladoo = {
@@ -120,7 +119,7 @@ console.log(kali.name);     // kali
 ```
 We created a variable called `ladoo` and assign it to an object which has two properties, `type` and `name`. Then we created a new variable called `kali` and assign it, whatever the in-memory value of `ladoo` is, which is the reference to the spot in memory where the `ladoo` object is located. Now, both `ladoo` and `kali` are referencing the same spot in memory. What that means is when we modify `kali.name`, it's as if we also modified `laddo.name` because they are referencing same spot in memory. That's why when we log `ladoo.name` and `kali.name` we get the same value, `kali`.
 
-## Explain the output of code given below
+## Explain output
 
 ```js
 let a = {
@@ -148,7 +147,7 @@ a === b // false
 
 In shallow equality check of objects we get the list of properties of both Objects, then we check the propertie's values for equality.
 
-## Write a function to perform shallow equality on two objects
+## Write a function to perform shallow equality check on two objects
 
 ```js
 function shallowEqual(obj1, obj2) {
@@ -167,9 +166,9 @@ function shallowEqual(obj1, obj2) {
 }
 ```
 
-## When does shallow equality does not work well?
+## When does shallow equality fail?
 
-If the properties values of objects are primitive values, then shallow equality works very well. But, if the properties values are objects, then shallow equality does not work well. In the example given below the nested objects `dog1.features` and `dog2.features` are having different location in memory. Thus the shallow equality considers that `dog1.features` and `dog2.features` are different values.
+If the properties values of objects are primitive values, then shallow equality works very well. But, if the properties values are objects, then shallow equality check fail because nested objects are considered to have diferent location in memory. In the example given below the nested objects `dog1.features` and `dog2.features` are having different location in memory. Thus the shallow equality considers that `dog1.features` and `dog2.features` are different values.
 
 ```js
 const dog1 = {
@@ -193,7 +192,7 @@ shallowEqual(dog1, dog2)    // false
 
 The deep equality is similar to the shallow equality, but there is one difference. During the shallow equality check, if the compared value of properties are objects, a recursive shallow equality check is performed on these nested objects.
 
-## Write a function to perform deep equality on two objects
+## Write a function to perform deep equality check on two objects
 
 ```js
 function deepEqual(obj1, obj2) {
