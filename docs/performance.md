@@ -54,6 +54,8 @@ function debounce(fn, delay) {
 
 ## Explain Throttling
 
+Throttling enforces a maximum number of times a function can be called over time.
+
 ---
 
 ## Implement Throttle
@@ -68,4 +70,18 @@ function debounce(fn, delay) {
 
 ## What is memoization?
 
+Memoization is an optimization technique that speeds up application by storing the results of expensive function calls in a cache and returning the cached result when the expensive function is called again with same inputs. We are not redoing any calculations because we are already having the result.
+
 ## Write your own memoize function? 
+
+## What is cache?
+
+A cache is a temporary data store that holds data so that future request for that same data can be served faster.
+
+## What do you mean by expensive function call?
+
+Expensive function call is a function call that that consumes lot of time and memory during execution due to heavy computation.
+
+:::note
+In the context of computer programs, the two major resources we have are time and memory.
+:::
