@@ -6,6 +6,18 @@ sidebar_label: Performance
 
 ## What is a web worker? When would you use one?
 
+Web worker is a JavaScript file that runs on a separate thread from the web page thread. So, we are having a JavaScript which loads on our web page and then we ca have a separate JavaScript file which acts as a separate program, running in a background thread.
+
+If we run a bunch of heavy processing in the code that is on our web page, we know that we're not gonna be able to scroll around and click on buttons while JavaScript is running because web page thread is busy in heavy processing. But, we can offload the heavy processing work on to a web worker, which will not affect any of the behaviour on our web page.
+
+## How to create a web worker?
+
+```jsx
+const worker = new Worker("/js/worker.js");
+```
+
+---
+
 ## Explain Debouncing
 
 Debouncing enforces that a function not be called again until certain amount of time has passed without it being called.
