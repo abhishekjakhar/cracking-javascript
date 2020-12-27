@@ -45,3 +45,7 @@ The object frozen using `Object.freeze()` is shallow, which means the result of 
 ## Object.freeze() vs Object.seal()
 
 Objects sealed with `Object.seal()` can have their existing properties changed. But, existing properties in object frozen with `Object.freeze()` cannot be changed, they are made immutable.
+
+## How to deal with value immutability in JavaScript?
+
+When you write a function that receives data structures, treat it as if it's read only no matter what. Make a copy of it, and make changes to your local copy.

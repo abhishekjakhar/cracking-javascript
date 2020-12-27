@@ -92,7 +92,7 @@ This is an operator that guarantees it will always return a string. typeof opera
 
 ---
 
-## Write a functin to check if number is integer or not?
+## Write a function to check if number is integer or not?
 
 ```js
 function isInteger(value) {
