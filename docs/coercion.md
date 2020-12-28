@@ -26,8 +26,6 @@ Number(false)   // 0
 ```
 :::
 
----
-
 ## What is boxing?
 
 Boxing is a form of implicit coercion. It says that you have something which is not an object and you're trying to use it as if it is an object. The JavaScript will go ahead and make it into an object for you. This is the reason we are able to access properties and methods on primitives.

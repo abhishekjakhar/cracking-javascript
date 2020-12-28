@@ -8,8 +8,6 @@ sidebar_label: Scope
 
 The first execution context which gets created when the JavaScript engine runs your code is called <br/> "Global Execution Context".
 
----
-
 ## What is value of "this" in global execution context?
 
 "this" will reference the global object which will be the window if you're running JavaScript in the browser. Initially this execution context will consist of two things - a **global object** and a variable called **this**.
@@ -18,17 +16,11 @@ The first execution context which gets created when the JavaScript engine runs y
 this === window; //true
 ```
 
----
-
 ## How do we know something is function declaration?
 
 If the word function is literally the first thing in statement then it is function declaration. If it's not the first thing in the statement it is function expression.
 
----
-
 ## What is difference between function declaration and function expression?
-
----
 
 ## What is IIFE, what are benefits of using IIFE pattern?
 
@@ -44,8 +36,6 @@ IIFE is a function expression which is created and called immediately. So, the c
 ```
 
 The benefit of using IIFE is we are not polluting the enclosing scope, because the variables or function defined inside of IIFE cannot be accessed outside the IIFE.
-
----
 
 ## Write the given below code snippet with block instead of IIFE
 
@@ -76,8 +66,6 @@ console.log(firstName);       // Naruto
 Blocks are not scope until they have let or const inside of them
 :::
 
----
-
 ## What is hoisting?
 
 The process of assigning variable declarations a default value of undefined during the creation phase is called Hoisting.
@@ -100,8 +88,6 @@ Nothing is actually hoisted or move around
 :::
 
 https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/
-
----
 
 ## var vs let vs const?
 
@@ -142,8 +128,6 @@ https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures
    c = 4; // TypeError: Assignment to constant variable
    ```
 
----
-
 ## Justify the output of code given below?
 
 ```js
@@ -161,8 +145,6 @@ On line 1 we are declaraing a const "name" that can't be reassigned, so we get a
 
 What the const keyword is actually saying, from a semantic perspective is, for the rest of this block, I promise I will not get reassigned.
 
----
-
 ## Difference between TypeError and ReferenceError?
 
 ### TypeError
@@ -172,8 +154,6 @@ A type error occurs when the variable exists, but the operation you're trying to
 ### ReferenceError
 
 A reference error occur when you try to us a variable that doesn't exist at all.
-
----
 
 ## Justify the output of code given below
 
@@ -199,15 +179,11 @@ getFirstName(); // ReferenceError: getFirstName is not defined
 
 Even though `getFirstName` exist within the program, it doesn't exist in any scope that we have access to at the moment.
 
----
-
 ## What is block scoping?
 
 :::note
 All curly braces are not scope., they are only a scope if they have a let or a const inside of them. 
 :::
-
----
 
 ## When do you prefer to use var over let?
 
@@ -215,11 +191,7 @@ If you have a variable that belongs to the entire scope of the function, the cor
 
 lets are supposed to signal a very localized usage of a variable, ideally only within a couple of lines of code.
 
----
-
 ## What is strict mode?
-
----
 
 ## How do you apply strict mode?
 
@@ -245,8 +217,6 @@ function strict() {
 function notStrict() { return "I'm not in strict mode."; }
 ```
 
----
-
 ## Explain output
 
 ```jsx
@@ -264,3 +234,18 @@ otherClass();
 ```
 
 It will give `ReferenceError: topic is not defined` because the script is running in strict mode, and in strict mode you cannot create a auto global variable.
+
+## Explain output
+
+```jsx
+var bar = 10;
+function logBar() {
+   console.log(bar);
+   var bar = 20;
+}
+logBar();
+```
+
+It will log `undefined` because of the following reasons
+* It does not log 10 because the variable `bar` is already declared in function `logBar()`, so the JavaScript engine will not lookup for `bar` in the outer scope.
+* It does not log 20 because at the creation phase of JavaScript the variable `bar` has been assigned the value of `undefined`, this process is called hoisting. It is at the execution phase the variable `bar` will be assigned value of 20, but when we execute our code line by line we execute `console.log(bar);` before `var bar = 20;`, due to this reason `undefined` is logged. 

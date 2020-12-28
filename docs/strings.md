@@ -12,8 +12,6 @@ sidebar_label: Strings
     }
 ```
 
-----
-
 ## Remove Duplicate String
 
 ```js

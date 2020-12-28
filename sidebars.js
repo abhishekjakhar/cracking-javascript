@@ -14,10 +14,7 @@ module.exports = {
     "promises",
     "performance",
     "dom",
-    {
-      type: 'category',
-      label: 'Algorithm',
-      items: ['strings', 'arrays', 'sorting', 'searching'],
-    }
+    "strings",
+    "arrays"
   ]
 };

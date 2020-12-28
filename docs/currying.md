@@ -45,3 +45,5 @@ function mul(x) {
 
 mul(2)(3)(4)    // 24
 ```
+
+## sum(a)(b) and sum(a,b)

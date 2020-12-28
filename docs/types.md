@@ -15,8 +15,6 @@ foo = "bar"; // foo is now a string
 foo = true; // foo is now a boolean
 ```
 
----
-
 ## What are different data types in JavaScript?
 
 **Primitive Types**
@@ -37,15 +35,11 @@ foo = true; // foo is now a boolean
 In JavaScript variables don't have types, values do.
 :::
 
----
-
 ## What is meaning of primitive type?
 
 In JavaScript, a primitive (value/data) is data that is not object and has no methods.
 
 All primitives are immutable. They can be replaced but, but they can't be directly altered like objects, functions and arays.
-
----
 
 ## undefined vs undeclared?
 
@@ -59,8 +53,6 @@ let a;
 a; // undefined
 b; // ReferenceError: b is not defined
 ```
-
----
 
 ## What is use of typeof operator?
 
@@ -90,8 +82,6 @@ typeof v; // "boolean"
 This is an operator that guarantees it will always return a string. typeof operator cannot return empty string, null or undefined.
 :::
 
----
-
 ## Write a function to check if number is integer or not?
 
 ```js
@@ -101,3 +91,13 @@ function isInteger(value) {
   );
 }
 ```
+
+## Explain output
+
+```jsx
+console.log(typeof typeof 1);
+console.log(typeof typeof true);
+```
+Both of the console.log will return "string"
+* `typeof 1` is `"number"` and `typeof "number"` is `string`
+* `typeof true` is `"boolean"` and `typeof "boolean"` is `string`

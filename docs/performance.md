@@ -16,8 +16,6 @@ If we run a bunch of heavy processing in the code that is on our web page, we kn
 const worker = new Worker("/js/worker.js");
 ```
 
----
-
 ## Explain Debouncing
 
 Debouncing enforces that a function not be called again until certain amount of time has passed without it being called.
@@ -27,8 +25,6 @@ The debounce function delays the processing of the keyup event until user has st
 This way we prevent the browser to process event on every keystroke, also we don't spam the API to get the results, basically we have grouped multiple sequential calls into single one.
 
 If we would have not debounced the function which fire on every keystroke we would have end up making call to API on every keystroke.
-
----
 
 ## Implement Debounce
 
@@ -50,21 +46,13 @@ function debounce(fn, delay) {
 }
 ```
 
----
-
 ## Explain Throttling
 
 Throttling enforces a maximum number of times a function can be called over time.
 
----
-
 ## Implement Throttle
 
----
-
 ## Explain requestAnimationFrame
-
----
 
 ## Move element left to right by any given distance smoothly
 
