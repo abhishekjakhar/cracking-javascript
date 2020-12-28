@@ -24,9 +24,11 @@ this === window; //true
 
 If the word function is literally the first thing in statement then it is function declaration. If it's not the first thing in the statement it is function expression.
 
+---
+
 ## What is difference between function declaration and function expression?
 
-
+---
 
 ## What is IIFE, what are benefits of using IIFE pattern?
 
@@ -73,6 +75,8 @@ console.log(firstName);       // Naruto
 :::note
 Blocks are not scope until they have let or const inside of them
 :::
+
+---
 
 ## What is hoisting?
 
@@ -157,6 +161,8 @@ On line 1 we are declaraing a const "name" that can't be reassigned, so we get a
 
 What the const keyword is actually saying, from a semantic perspective is, for the rest of this block, I promise I will not get reassigned.
 
+---
+
 ## Difference between TypeError and ReferenceError?
 
 ### TypeError
@@ -166,6 +172,8 @@ A type error occurs when the variable exists, but the operation you're trying to
 ### ReferenceError
 
 A reference error occur when you try to us a variable that doesn't exist at all.
+
+---
 
 ## Justify the output of code given below
 
@@ -191,14 +199,68 @@ getFirstName(); // ReferenceError: getFirstName is not defined
 
 Even though `getFirstName` exist within the program, it doesn't exist in any scope that we have access to at the moment.
 
+---
+
 ## What is block scoping?
 
 :::note
 All curly braces are not scope., they are only a scope if they have a let or a const inside of them. 
 :::
 
+---
+
 ## When do you prefer to use var over let?
 
 If you have a variable that belongs to the entire scope of the function, the correct semantic way to signal to your reader is not to use a let at the top level of your function scope, but to use a var.
 
 lets are supposed to signal a very localized usage of a variable, ideally only within a couple of lines of code.
+
+---
+
+## What is strict mode?
+
+---
+
+## How do you apply strict mode?
+
+Strict mode is applied to entire script or to individual functions.
+
+To invoke strict mode for an entire script, put the exact statement "use strict"; before any other statements.
+
+```jsx
+// whole-script strict mode syntax
+'use strict';
+var v = "Hi! I'm a strict mode script!";
+```
+
+To invoke strict mode for a function, put the exact statement "use strict"; in the function's body before any other statements.
+
+```jsx
+function strict() {
+   // function-level strict mode syntax
+   'use strict';
+   function nested() { return 'And so am I!'; }
+   return "Hi!  I'm a strict mode function!  " + nested();
+}
+function notStrict() { return "I'm not in strict mode."; }
+```
+
+---
+
+## Explain output
+
+```jsx
+'use strict';
+
+var teacher = 'Abhishek';
+
+function otherClass() {
+   teacher = 'Aakash';
+   topic = 'React';
+   console.log('Welcome');
+}
+
+otherClass();
+```
+
+It will give `ReferenceError: topic is not defined` because the script is running in strict mode, and in strict mode you cannot create a auto global variable.
