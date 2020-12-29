@@ -94,6 +94,44 @@ newGreetFn();  // Heyo, my name is Abhishek and I know HTML, CSS and JavaScript
 
 An arrow function does not define a 'this' keyword of it's own, which means if you put a 'this' keyword inside of an arrow function, it's gonna behave exactly like any other variable, which means it's going to lexically resolve to some enclosing scope that does define 'this' key word.
 
+## Exlain output
+
+```jsx
+const a = {
+    a: 'a'
+};
+
+const obj = {
+    getThis1: () => this,
+    getThis2 () {
+        return this;
+    }
+}
+
+obj.getThis3 = obj.getThis1.bind(obj);
+obj.getThis4 = obj.getThis2.bind(obj);
+
+obj.getThis1();             // ??
+obj.getThis1.call(a);       // ??
+obj.getThis2();             // ??
+obj.getThis2.call(a);       // ??
+obj.getThis3();             // ??
+obj.getThis3.call(a);       // ??
+obj.getThis4();             // ??
+obj.getThis4.call(a);       // ??
+```
+
+* `window` - An arrow function does not define a `this` keyword of it's own, which means if you put a `this` keyword inside of an arrow function, it's gonna behave exactly like any other variable, which means it's going to lexically resolve to some enclosing scope that does define `this` key word. In our case the enclosing scope would be global scope, in which `this` refers to the global object, which will be window object.
+* `window` object - For arrow functions, this can't be reassigned, even with `.call()` or `.bind()`. It will also be `window` object for the same reason given above.
+* `obj` - Whenever we’re trying to figure out what the this keyword is referencing we need to look to the invocation and see what’s to the “left of the dot”. In our invocation `obj.getThis2()`, `obj` is to the left of the dot which means `this` is going to reference `obj` object.
+* `a` - `call()` is a method on every function that allows you to invoke the function specifying in what context the function wil be invoked. 
+The first argument you pass into `call()` will be the context in which function is invoked. In our case we are passing `a` as an argument to `call()` method, so the `this` is going to reference `a` object.
+* `window` - We're are trying to bind an arrow function, which we've already discussed will not work. We will get `window` object.
+* `window` - We're are trying to bind an arrow function, which we've already discussed will not work. We will get `window` object.
+* `obj` - We can bind regular methods, so it will return `obj`, as expected.
+* `obj` - It has already been bound with `obj.getThis2.bind(obj);` so `obj.getThis4.call(a)` respects the first binding and returns `obj` instead of `a`.
+
+
 ## What are reference values in JavaScript?
 
 anything that is "typeof" "object" is a reference value in JavaScript
