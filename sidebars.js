@@ -15,6 +15,7 @@ module.exports = {
     "performance",
     "dom",
     "strings",
-    "arrays"
+    "arrays",
+    "miscellaneous",
   ]
 };
