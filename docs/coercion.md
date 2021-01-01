@@ -4,6 +4,14 @@ title: Coercion
 sidebar_label: Coercion
 ---
 
+## What is coercion?
+
+Converting a value from one type to another is called "type casting", when done explicitly, and "coercion" when done implicitly.
+
+## What is difference between `==` and `===`?
+
+Both `==` and `===` check the types of their operands. The difference is in how they respond if the types don't match. The `==` allows coercion when types don't match and `===` disallows coercion.
+
 ## Why does 3 > 2 > 1 return false while 1 < 2 < 3 return true?
 
 ```js title="3 > 2 > 1"
