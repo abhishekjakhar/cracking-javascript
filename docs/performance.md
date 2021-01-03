@@ -50,6 +50,12 @@ function debounce(fn, delay) {
 
 Throttling enforces a maximum number of times a function can be called over time.
 
+Let's consider, we have a button in our application that when clicked, makes an API call.
+The throttle function can restrict the amount of API call.
+The user may be clicking 10 times a second but we only fire the handler once per second, basically we are not allowing our function to execute more than once every X milliseconds.
+
+If we have not throttled the function which fire on every button click we would have end up making call to API on every click.
+
 ## Implement Throttle
 
 ## Explain requestAnimationFrame
