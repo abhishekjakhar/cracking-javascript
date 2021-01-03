@@ -3,7 +3,7 @@
     <br>
 	<br>
     <br>
-	<h2>The ultimate resource to prepare for JavaScript interviews</h2>
+	<h3>The ultimate resource to prepare for JavaScript interviews</h3>
     <br>
 </div>
 
