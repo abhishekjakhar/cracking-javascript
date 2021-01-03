@@ -1,33 +1,37 @@
-# Website
+<div align="center">
+	<img src="static/img/cracking-javascript.png" width="360" height="360">
+    <br>
+	<br>
+    <br>
+	<h2>The ultimate resource to prepare for JavaScript interviews</h2>
+    <br>
+</div>
 
-This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+---
+## Content
 
-## Installation
+#### Types
+#### Coercion
+#### Scope
+#### Closures
+#### Modules
+#### Currying
+#### Objects
+#### Immutability
+#### Prototypes
+#### Async
+#### Callbacks
+#### Promises
+#### Performance
+#### DOM
+#### Strings
+#### Arrays
+#### MICS
 
-```console
-yarn install
-```
+## Built With
 
-## Local Development
+[Docusaurus](https://v2.docusaurus.io/) - An optimized site generator in React
 
-```console
-yarn start
-```
+## Maintainers
 
-This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```console
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+[Abhishek Jakhar](https://github.com/abhishekjakhar) 
