@@ -191,8 +191,6 @@ If you have a variable that belongs to the entire scope of the function, the cor
 
 lets are supposed to signal a very localized usage of a variable, ideally only within a couple of lines of code.
 
-## What is strict mode?
-
 ## How do you apply strict mode?
 
 Strict mode is applied to entire script or to individual functions.
