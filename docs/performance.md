@@ -58,6 +58,26 @@ If we have not throttled the function which fire on every button click we would 
 
 ## Implement Throttle
 
+* We are passing a function(fn) and a limit (limit) into the throttle function
+* isThrottled is the variable which we use to keep track of if throttle period has passed or not
+
+THe first call to our function fn will execute and then we will set the isThrottled to true, also the isThrottled will become false again when our limit period has passed. Now, if throttle is true and limit period has not passed, our function fn during this period will not fire. Once it is passed, the next invocation will fire and the process will repaeat. 
+
+```jsx
+function throttle(fn, limit) {
+    let isThrottled;
+    return function() {
+        if (!isThrottled) {
+            fn.apply(this, arguments);
+            isThrottled = true;
+            setTimeout(() => {
+                isThrottled = false
+            }, limit);
+        }
+    }
+}
+```
+
 ## Explain requestAnimationFrame
 
 ## Move element left to right by any given distance smoothly
