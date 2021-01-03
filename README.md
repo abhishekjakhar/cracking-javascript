@@ -1,10 +1,7 @@
 <div align="center">
 	<img src="static/img/cracking-javascript.png" width="360" height="360">
     <br>
-	<br>
-    <br>
 	<h3>The ultimate resource to prepare for JavaScript interviews</h3>
-    <br>
 </div>
 
 ---
