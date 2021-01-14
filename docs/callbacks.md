@@ -8,55 +8,57 @@ sidebar_label: Callbacks
 
 Functions in JavaScript are called First-class functions because they can be treated like any other variable.
 
-* can be assigned as a value to a variable
+- can be assigned as a value to a variable
 
-* can be passed as an argument to other functions
+- can be passed as an argument to other functions
 
-* can be returned by another function
+- can be returned by another function
 
 ## Explain callback and higher order function?
 
-* A function that returns a function or receives a function as an argument is called a Higher-Order Function.
+- A function that returns a function or receives a function as an argument is called a Higher-Order Function.
 
-* The function which you are pasing to a higher order function as argument is called callback function.
+- The function which you are pasing to a higher order function as argument is called callback function.
 
 In the example given below we have created a higher order function called `map` in which we are passing a callback function called `addTwo`
 
 ```js
 const map = (array, callback) => {
-    const output = [];
-    for (let i = 0; i < array.length; i++) {
-        output.push(callback(array[i]));
-    }
-    return output;
+  const output = [];
+  for (let i = 0; i < array.length; i++) {
+    output.push(callback(array[i]));
+  }
+  return output;
 };
 
 const addTwo = (num) => {
-    return num + 2;
+  return num + 2;
 };
 
-map([1,2,3], addTwo);   // [3,4,5]
+map([1, 2, 3], addTwo); // [3,4,5]
 ```
 
 ## Create following functions
 
 ### Create a function called `map` that takes two inputs:
-* an array of numbers
-* a callback function - a function that is applied to each element of the array
+
+- an array of numbers
+- a callback function - a function that is applied to each element of the array
 
 `map` return a new array filled with numbers that are the result of using the 'callback' function on each element of the input array
 
 ```js title="map"
 function map(array, callback) {
-    let result = [];
-    for (let elem of array) {
-        result.push(callback(elem));
-    }
-    return result;
+  let result = [];
+  for (let elem of array) {
+    result.push(callback(elem));
+  }
+  return result;
 }
 ```
 
 ### Create a function called `forEach` that takes two inputs:
+
 1. an array
 2. a callback function - a function that is applied to each element of the array
 
@@ -64,13 +66,14 @@ function map(array, callback) {
 
 ```js title="forEach"
 function forEach(array, callback) {
-    for (let elem of array) {
-        callback(elem);
-    }
+  for (let elem of array) {
+    callback(elem);
+  }
 }
 ```
 
 ### Create a function called `reduce` that takes three input:
+
 1. an array
 2. a callback function
 3. initial value
@@ -79,10 +82,10 @@ function forEach(array, callback) {
 
 ```js title="reduce"
 function reduce(array, callback, initialValue) {
-    for (let elem of array) {
-        initialValue = callback(initialValue, elem);
-    }
-    return initialValue;
+  for (let elem of array) {
+    initialValue = callback(initialValue, elem);
+  }
+  return initialValue;
 }
 ```
 
@@ -90,27 +93,33 @@ function reduce(array, callback, initialValue) {
 
 An arrow function is a compact alternative to traditional function.
 
-* they are more concise than the tranditional functions
-* they manage 'this' keyword differently
+- they are more concise than the tranditional functions
+- they manage 'this' keyword differently
 
 ```js
 // Traditional Function
 function multiplyBy2(input) {
-    return input * 2 
-};
+  return input * 2;
+}
 ```
+
 ```js
 // Remove the word "function" and place arrow between the argument and opening body bracket
-const multiplyBy2 = (input) => { return input * 2 };
+const multiplyBy2 = (input) => {
+  return input * 2;
+};
 ```
+
 ```js
 // Remove the body brackets and word "return" -- the return is implied
 const multiplyBy2 = (input) => input * 2;
 ```
+
 ```js
 // Remove the argument parenthesis
-const multiplyBy2 = input => input * 2;
+const multiplyBy2 = (input) => input * 2;
 ```
+
 ```js
 const output = multiplayBy2(3); // 6
 ```
@@ -135,12 +144,12 @@ Now, in the example given above we make a asynchronous request on click of butto
 2. Inversion of control - When you write a callback, you're assuming that the program you're giving the callback to is reponsible and will call it when it's supposed to. You're essentially inverting the the control of your program over to another program. For many third-party libraries, callback functions are the interface for how you interact with them. It’s probable that a third party library could, whether on purpose or accidentally, break how they interact with your callback.
 
 ```js
-function criticalFunction () {
+function criticalFunction() {
   // It's critical that this function
   // gets called and with the correct arguments
 }
 
-thirdPartyLib(criticalFunction)
+thirdPartyLib(criticalFunction);
 ```
 
 In the example given above you're not the one calling `criticalFunction`, you have 0 control over when and with what arguments it's invoked.
@@ -153,10 +162,10 @@ In the example given below line 1 and 2 represents the first half of our program
 
 ```js
 // line 1
-setTimeout(function() {
-    // line 3
-    // line 4
-})
+setTimeout(function () {
+  // line 3
+  // line 4
+});
 // line 2
 ```
 
@@ -165,10 +174,10 @@ setTimeout(function() {
 Yes, callbacks can be synchronous
 
 ```js
-const gods = ['Apollo', 'Artemis', 'Ares', 'Zeus'];
+const gods = ["Apollo", "Artemis", "Ares", "Zeus"];
 
-gods.forEach(function (eachName, index){
-  console.log(index + '. ' + eachName);
+gods.forEach(function (eachName, index) {
+  console.log(index + ". " + eachName);
 });
 ```
 

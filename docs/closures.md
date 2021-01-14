@@ -20,7 +20,7 @@ function makeAdder(x) {
 var add5 = makeAdder(5);
 var add10 = makeAdder(10);
 
-console.log(add5(2));  // 7
+console.log(add5(2)); // 7
 console.log(add10(2)); // 12
 ```
 
@@ -37,7 +37,7 @@ function ask(question) {
   }, 100);
 }
 
-ask("What is closure?");  // What is closure?
+ask("What is closure?"); // What is closure?
 ```
 
 When we pass some function to a timer it usually reference some variable outside of itself. Now, in the example given above, at the time waitASecond function runs, the ask function has already finished, and the variable question should have gone away. But, it did not go away because closure preserved it.
@@ -63,13 +63,13 @@ We usually write code that return functions or passes them around in callbacks. 
 ```jsx
 var teacher = "Kyle";
 
-var myTeacher = function() {
+var myTeacher = function () {
   console.log(teacher);
-}
+};
 
 teacher = "Suzy";
 
-myTeacher();  // ??
+myTeacher(); // ??
 ```
 
 The function will print "Suzy" because we did not close over the value Kyle, instead we closed over the variable teacher. When we will execute the function myTeacher we will access the value of teacher variable, which will be "Kyle" at the time of myTeacher function execution.
@@ -78,7 +78,7 @@ The function will print "Suzy" because we did not close over the value Kyle, ins
 
 ```jsx
 for (var i = 1; i <= 3; i++) {
-  setTimeout(function() {
+  setTimeout(function () {
     console.log(`i: ${i}`);
   }, 1000);
 }
@@ -96,9 +96,9 @@ Closure is not capturing a value, it is preserving access to a variable.
 If we want to solve this problem, we need to create more than one variable with the same name, we need to make new scopes. With the help of ES6 blockscoping, we can add a block scope declaration in the iteration.
 
 ```jsx
-for (var i = 1; i <=3; i++) {
+for (var i = 1; i <= 3; i++) {
   let j = i;
-  setTimeout(function() {
+  setTimeout(function () {
     console.log(`j: ${j}`);
   }, 1000);
 }
@@ -110,8 +110,8 @@ for (var i = 1; i <=3; i++) {
 Now, in the example given above `let j = i` is going to run every time the for loop iterates, it will create a whole new `j` in that whole new iteration of the loop. When we close over variable `j`, we are closing over a whole new `j`. There are three seprate `j` therefore we get the values 1, 2 and 3 in them.
 
 ```jsx
-for (let i = 1; i <=3; i++) {
-  setTimeout(function() {
+for (let i = 1; i <= 3; i++) {
+  setTimeout(function () {
     console.log(`i: ${i}`);
   }, 1000);
 }

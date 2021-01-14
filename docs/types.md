@@ -98,6 +98,8 @@ function isInteger(value) {
 console.log(typeof typeof 1);
 console.log(typeof typeof true);
 ```
+
 Both of the console.log will return "string"
-* `typeof 1` is `"number"` and `typeof "number"` is `string`
-* `typeof true` is `"boolean"` and `typeof "boolean"` is `string`
+
+- `typeof 1` is `"number"` and `typeof "number"` is `string`
+- `typeof true` is `"boolean"` and `typeof "boolean"` is `string`

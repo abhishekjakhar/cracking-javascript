@@ -5,24 +5,41 @@
 </div>
 
 ---
+
 ## Content
 
 #### Types
+
 #### Coercion
+
 #### Scope
+
 #### Closures
+
 #### Modules
+
 #### Currying
+
 #### Objects
+
 #### Immutability
+
 #### Prototypes
+
 #### Async
+
 #### Callbacks
+
 #### Promises
+
 #### Performance
+
 #### DOM
+
 #### Strings
+
 #### Arrays
+
 #### MICS
 
 ## Built With
@@ -31,4 +48,4 @@
 
 ## Maintainers
 
-[Abhishek Jakhar](https://github.com/abhishekjakhar) 
+[Abhishek Jakhar](https://github.com/abhishekjakhar)

@@ -17,5 +17,5 @@ module.exports = {
     "strings",
     "arrays",
     "miscellaneous",
-  ]
+  ],
 };

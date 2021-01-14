@@ -10,9 +10,9 @@ module.exports = {
   projectName: "cracking-javascript",
   themeConfig: {
     prism: {
-      defaultLanguage: 'javascript',
-      theme: require('prism-react-renderer/themes/nightOwl'),
-      darkTheme: require('prism-react-renderer/themes/nightOwl'),
+      defaultLanguage: "javascript",
+      theme: require("prism-react-renderer/themes/nightOwl"),
+      darkTheme: require("prism-react-renderer/themes/nightOwl"),
     },
     navbar: {
       title: "Cracking JavaScript",
@@ -42,7 +42,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl:
-            "https://github.com/abhishekjakhar/cracking-javascript/edit/main"
+            "https://github.com/abhishekjakhar/cracking-javascript/edit/main",
         },
         blog: {
           showReadingTime: true,

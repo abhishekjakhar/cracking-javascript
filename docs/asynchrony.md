@@ -13,13 +13,13 @@ It can run only one command at a time.
 A thunk is a function that has everything already that it needs to do to give you some value back. You do not need to pass any arguments in, you simply call it and it will give you a value back.
 
 ```js title="synchronous thunk"
-function add(x,y) {
-    return x + y;
+function add(x, y) {
+  return x + y;
 }
 
-var thunk = function() {
-    return add(10,15);  // 25
-}
+var thunk = function () {
+  return add(10, 15); // 25
+};
 
 thunk();
 ```
@@ -29,18 +29,18 @@ thunk();
 It is a function that doesn't need any arguments passed to it to do it's job, except you need to pass it a callback so that you can get the value out.
 
 ```js title="asynchronous thunk"
-function addAsync(x,y,cb) {
-    setTimeout(function() {
-        cb(x + y);
-    }, 1000);
+function addAsync(x, y, cb) {
+  setTimeout(function () {
+    cb(x + y);
+  }, 1000);
 }
 
-var thunk = function(cb) {
-    return addAsync(10, 15, cb)
-}
+var thunk = function (cb) {
+  return addAsync(10, 15, cb);
+};
 
-thunk(function(sum) {
-    sum;    // 25
+thunk(function (sum) {
+  sum; // 25
 });
 ```
 
@@ -60,20 +60,20 @@ The event loop says I am gonna check before every single line of code run, is th
 
 ```js
 function work() {
-    console.log('Working');
+  console.log("Working");
 }
 
-console.log('Started');
+console.log("Started");
 setTimeout(work, 0);
-console.log('Ended');
+console.log("Ended");
 ```
 
 Although the wait time is 0 ms, the result in the browser console will be the following:
 
 ```js
-Started
-Ended
-Working
+Started;
+Ended;
+Working;
 ```
 
 The callback function `work()` will get placed in Callback Queue and will only be picked up by Event Loop and pushed to Callstack, when all synchronous code is finished running and the Callstack is empty.

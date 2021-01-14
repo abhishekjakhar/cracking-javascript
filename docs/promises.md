@@ -20,16 +20,16 @@ const promise = new Promise();
 
 ## What are possible states of promise?
 
-* `fulfilled`
-* `rejected`
-* `pending`
+- `fulfilled`
+- `rejected`
+- `pending`
 
 ## How do you change the status of a promise?
 
 The Promise constructor function takes in a single argument, a callback function. This function is going to be passed two arguments, resolve and reject.
 
-* `resolve` - a function that allow you to change the status of a promise to `fulfilled`
-* `reject` - a function that allow you to change the status of a promise to `rejected`
+- `resolve` - a function that allow you to change the status of a promise to `fulfilled`
+- `reject` - a function that allow you to change the status of a promise to `rejected`
 
 ## Why is it possible to chain promises?
 
@@ -41,25 +41,25 @@ The Promise constructor function takes in a single argument, a callback function
 
 ```js
 const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("Resolved!");
-    }, 1000);
-})
+  setTimeout(() => {
+    resolve("Resolved!");
+  }, 1000);
+});
 
 promise.then((successMessage) => {
-    console.log(successMessage);
-})
+  console.log(successMessage);
+});
 ```
 
 ### Create a promise. Have it reject with a value of "Rejected!" without using setTimeout. Print the contents of the promise after it has been rejected.
 
 ```js
 const promise = new Promise((resolve, reject) => {
-    reject("Rejected!");
-})
+  reject("Rejected!");
+});
 
 promise.catch((errorMessage) => {
-    console.log(errorMessage);
+  console.log(errorMessage);
 });
 ```
 
@@ -67,11 +67,11 @@ promise.catch((errorMessage) => {
 
 ```js
 function sleep(duration) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve();
-        }, duration);
-    })
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, duration);
+  });
 }
 ```
 
@@ -81,6 +81,6 @@ They are esentially a returned object to which you attach callback functions, ra
 
 ## Promises also takes callbacks, how can we trust promises?
 
-* Once a promise is settled, it must have a value(which may be undefined). That value must not change. It is immutable once settled.
+- Once a promise is settled, it must have a value(which may be undefined). That value must not change. It is immutable once settled.
 
-* A fulfilled or rejected promise is settled, and must not transition into any other state. It can only be settled once.
+- A fulfilled or rejected promise is settled, and must not transition into any other state. It can only be settled once.

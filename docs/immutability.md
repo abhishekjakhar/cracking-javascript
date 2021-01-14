@@ -16,28 +16,28 @@ Immutability does not mean that things can't change. There's really no such thin
 
 ```js
 const dog = {
-    name: 'Ladoo'
-}
+  name: "Ladoo",
+};
 
 const anotherDog = { ...dog };
 
-anotherDog.name = 'Kali'
+anotherDog.name = "Kali";
 
-console.log(dog.name);          // Ladoo
-console.log(anotherDog.name)    // Kali
+console.log(dog.name); // Ladoo
+console.log(anotherDog.name); // Kali
 ```
 
 ## Explain output
 
 ```jsx
 let obj = {
-    internal: {}
+  internal: {},
 };
 
 Object.freeze(obj);
-obj.internal.foo = 'Foo';
+obj.internal.foo = "Foo";
 
-console.log(obj.internal.foo);  // Foo
+console.log(obj.internal.foo); // Foo
 ```
 
 The object frozen using `Object.freeze()` is shallow, which means the result of calling `Object.freeze(object)` only applies to the immediate properties of `object`. If our object is having a property whose value is another object, those objects are not frozen and may be target of property addition, deletion and or value re-assignment operations.

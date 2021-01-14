@@ -8,42 +8,42 @@ sidebar_label: Currying
 
 ```js
 function sum(a) {
-    return function(b) {
-        return a + b;
-    }
+  return function (b) {
+    return a + b;
+  };
 }
 
-sum(2)(3)   // 5
+sum(2)(3); // 5
 ```
 
 ## sum(a)(b)(c)........(n)
 
 ```js
 function sum(a) {
-    return function(b) {
-        if (b) {
-            return sum(a + b);
-        }
-        return a;
+  return function (b) {
+    if (b) {
+      return sum(a + b);
     }
+    return a;
+  };
 }
 
-sum(2)(3)       // 5
-sum(2)(3)(5)    // 10
+sum(2)(3); // 5
+sum(2)(3)(5); // 10
 ```
 
 ## mul(x)(y)(z)
 
 ```js
 function mul(x) {
-    return function(y) {
-        return function(z) {
-            return x * y * z;
-        }
-    }
+  return function (y) {
+    return function (z) {
+      return x * y * z;
+    };
+  };
 }
 
-mul(2)(3)(4)    // 24
+mul(2)(3)(4); // 24
 ```
 
 ## sum(a)(b) and sum(a,b)

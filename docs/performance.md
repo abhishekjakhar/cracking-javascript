@@ -20,7 +20,7 @@ const worker = new Worker("/js/worker.js");
 
 Debouncing enforces that a function not be called again until certain amount of time has passed without it being called.
 
-Let's consider, when you type into search input, there is a delay before the results appear. 
+Let's consider, when you type into search input, there is a delay before the results appear.
 The debounce function delays the processing of the keyup event until user has stopped typing for a predetermined amount of time.
 This way we prevent the browser to process event on every keystroke, also we don't spam the API to get the results, basically we have grouped multiple sequential calls into single one.
 
@@ -28,21 +28,21 @@ If we would have not debounced the function which fire on every keystroke we wou
 
 ## Implement Debounce
 
-* We are passing a function (fn) and a delay (delay) into the debounce function. 
-* timeout is the variable which we will use to keep track of the amount of time.
+- We are passing a function (fn) and a delay (delay) into the debounce function.
+- timeout is the variable which we will use to keep track of the amount of time.
 
 If we are invoking function for the first time, our function will execute at the end of our delay. Now, if we invoke our function and invoke again before the end of our delay, the delay restarts and execution of our function fn (gets) postponed, this process keeps happening until we stop firing the function and our delay gets completed.
 
 ```js
 function debounce(fn, delay) {
-    let timeout;
+  let timeout;
 
-    return function() {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            return fn.apply(this, arguments);
-        }, delay);
-    }
+  return function () {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      return fn.apply(this, arguments);
+    }, delay);
+  };
 }
 ```
 
@@ -58,23 +58,23 @@ If we have not throttled the function which fire on every button click we would 
 
 ## Implement Throttle
 
-* We are passing a function(fn) and a limit (limit) into the throttle function
-* isThrottled is the variable which we use to keep track of if throttle period has passed or not
+- We are passing a function(fn) and a limit (limit) into the throttle function
+- isThrottled is the variable which we use to keep track of if throttle period has passed or not
 
-THe first call to our function fn will execute and then we will set the isThrottled to true, also the isThrottled will become false again when our limit period has passed. Now, if throttle is true and limit period has not passed, our function fn during this period will not fire. Once it is passed, the next invocation will fire and the process will repaeat. 
+THe first call to our function fn will execute and then we will set the isThrottled to true, also the isThrottled will become false again when our limit period has passed. Now, if throttle is true and limit period has not passed, our function fn during this period will not fire. Once it is passed, the next invocation will fire and the process will repaeat.
 
 ```jsx
 function throttle(fn, limit) {
-    let isThrottled;
-    return function() {
-        if (!isThrottled) {
-            fn.apply(this, arguments);
-            isThrottled = true;
-            setTimeout(() => {
-                isThrottled = false
-            }, limit);
-        }
+  let isThrottled;
+  return function () {
+    if (!isThrottled) {
+      fn.apply(this, arguments);
+      isThrottled = true;
+      setTimeout(() => {
+        isThrottled = false;
+      }, limit);
     }
+  };
 }
 ```
 
@@ -86,7 +86,7 @@ function throttle(fn, limit) {
 
 Memoization is an optimization technique that speeds up application by storing the results of expensive function calls in a cache and returning the cached result when the expensive function is called again with same inputs. We are not redoing any calculations because we are already having the result.
 
-## Write your own memoize function? 
+## Write your own memoize function?
 
 ## What is cache?
 
