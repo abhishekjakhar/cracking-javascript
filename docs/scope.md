@@ -29,9 +29,9 @@ IIFE stands for immediately invoked function expression.
 IIFE is a function expression which is created and called immediately. So, the code inside IIFE executes right away and has it's own private variables.
 
 ```js
-(function() {
-   var name = 'John';
-   console.log(name);
+(function () {
+  var name = "John";
+  console.log(name);
 })();
 ```
 
@@ -40,27 +40,26 @@ The benefit of using IIFE is we are not polluting the enclosing scope, because t
 ## Write the given below code snippet with block instead of IIFE
 
 ```js title="IIFE"
-var firstName = 'Naruto';
+var firstName = "Naruto";
 
-(function() {
-   var lastName = 'Uzumaki';
-   console.log(lastName);     // Uzumaki
+(function () {
+  var lastName = "Uzumaki";
+  console.log(lastName); // Uzumaki
 })();
 
-console.log(firstName);       // Naruto
+console.log(firstName); // Naruto
 ```
 
 ```js title="Block"
-var firstName = 'Naruto';
+var firstName = "Naruto";
 
 {
-   let lastName = 'Uzumaki';
-   console.log(lastName);     // Uzumaki
+  let lastName = "Uzumaki";
+  console.log(lastName); // Uzumaki
 }
 
-console.log(firstName);       // Naruto
+console.log(firstName); // Naruto
 ```
-
 
 :::note
 Blocks are not scope until they have let or const inside of them
@@ -71,15 +70,15 @@ Blocks are not scope until they have let or const inside of them
 The process of assigning variable declarations a default value of undefined during the creation phase is called Hoisting.
 
 ```jsx
-console.log('firstName: ', firstName)     // firstName: undefined
-console.log('lastName: ', lastName)       // lastName: undefined
-console.log('printName :', printName)     // printName: ƒ printName() {}
+console.log("firstName: ", firstName); // firstName: undefined
+console.log("lastName: ", lastName); // lastName: undefined
+console.log("printName :", printName); // printName: ƒ printName() {}
 
-var firstName = 'John'
-var lastName = 'Doe'
+var firstName = "John";
+var lastName = "Doe";
 
 function printName() {
-   console.log(`${firstName} ${lastName}`);
+  console.log(`${firstName} ${lastName}`);
 }
 ```
 
@@ -128,15 +127,15 @@ https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures
    c = 4; // TypeError: Assignment to constant variable
    ```
 
-## Justify the output of code given below?
+## Explain output
 
 ```js
-   const name = 'foo';
-   name = 'bar';        // TypeError
+const name = "foo";
+name = "bar"; // TypeError
 
-   const names = ["foo", "bar"];
-   names[0] = "baz";    // Allowed
-   console.log(names);  // ["baz", "bar"];
+const names = ["foo", "bar"];
+names[0] = "baz"; // Allowed
+console.log(names); // ["baz", "bar"];
 ```
 
 When we think about const we're thinking to ourselves, it is a thing that doesn't change, but const is a variable that can't be reassigned, those are two entirely different things.
@@ -144,6 +143,24 @@ When we think about const we're thinking to ourselves, it is a thing that doesn'
 On line 1 we are declaraing a const "name" that can't be reassigned, so we get an error on line 2. But, when we declare a mutable value like an array on line 4, we are not trying to reassign names on line 5, instead we are mutating the value which is allowed.
 
 What the const keyword is actually saying, from a semantic perspective is, for the rest of this block, I promise I will not get reassigned.
+
+## Explain output
+
+```js
+var teacher = "Abhishek";
+otherTeacher();
+
+function otherTeacher() {
+  console.log(teacher);
+  var teacher = "Aakash";
+}
+```
+
+It will log `undefined` because of the following reasons
+
+1. It does not log "Abhishek" because the variable `teacher` is already declared in function `otherTeacher()`, so the JavaScript engine will not lookup for teacher in the outer scope.
+
+2. It does not log "Aakash" because at the creation phase of JavaScript the variable teacher has been assigned the value of undefined, this process is called hoisting. It is at the execution phase the variable teacher will be assigned value of "Aakash", but when we execute our code line by line we execute console.log(teacher); before var teacher = "Aakash";, due to this reason undefined is logged.
 
 ## Difference between TypeError and ReferenceError?
 
@@ -155,25 +172,25 @@ A type error occurs when the variable exists, but the operation you're trying to
 
 A reference error occur when you try to us a variable that doesn't exist at all.
 
-## Justify the output of code given below
+## Explain output
 
 ```js
 var firstName = "Naruto";
 var lastName = "Uzumaki";
 
 function getName() {
-   function getFirstName() {
-      return name;
-   }
+  function getFirstName() {
+    return name;
+  }
 
-   function getLastName() {
-      return lastName;
-   }
+  function getLastName() {
+    return lastName;
+  }
 
-   return getFirstName() + " " + getLastName();
+  return getFirstName() + " " + getLastName();
 }
 
-getName();  // Naruto Uzumaki
+getName(); // Naruto Uzumaki
 getFirstName(); // ReferenceError: getFirstName is not defined
 ```
 
@@ -182,7 +199,7 @@ Even though `getFirstName` exist within the program, it doesn't exist in any sco
 ## What is block scoping?
 
 :::note
-All curly braces are not scope., they are only a scope if they have a let or a const inside of them. 
+All curly braces are not scope., they are only a scope if they have a let or a const inside of them.
 :::
 
 ## When do you prefer to use var over let?
@@ -199,7 +216,7 @@ To invoke strict mode for an entire script, put the exact statement "use strict"
 
 ```jsx
 // whole-script strict mode syntax
-'use strict';
+"use strict";
 var v = "Hi! I'm a strict mode script!";
 ```
 
@@ -207,25 +224,29 @@ To invoke strict mode for a function, put the exact statement "use strict"; in t
 
 ```jsx
 function strict() {
-   // function-level strict mode syntax
-   'use strict';
-   function nested() { return 'And so am I!'; }
-   return "Hi!  I'm a strict mode function!  " + nested();
+  // function-level strict mode syntax
+  "use strict";
+  function nested() {
+    return "And so am I!";
+  }
+  return "Hi!  I'm a strict mode function!  " + nested();
 }
-function notStrict() { return "I'm not in strict mode."; }
+function notStrict() {
+  return "I'm not in strict mode.";
+}
 ```
 
 ## Explain output
 
 ```jsx
-'use strict';
+"use strict";
 
-var teacher = 'Abhishek';
+var teacher = "Abhishek";
 
 function otherClass() {
-   teacher = 'Aakash';
-   topic = 'React';
-   console.log('Welcome');
+  teacher = "Aakash";
+  topic = "React";
+  console.log("Welcome");
 }
 
 otherClass();
@@ -238,12 +259,13 @@ It will give `ReferenceError: topic is not defined` because the script is runnin
 ```jsx
 var bar = 10;
 function logBar() {
-   console.log(bar);
-   var bar = 20;
+  console.log(bar);
+  var bar = 20;
 }
 logBar();
 ```
 
 It will log `undefined` because of the following reasons
-* It does not log 10 because the variable `bar` is already declared in function `logBar()`, so the JavaScript engine will not lookup for `bar` in the outer scope.
-* It does not log 20 because at the creation phase of JavaScript the variable `bar` has been assigned the value of `undefined`, this process is called hoisting. It is at the execution phase the variable `bar` will be assigned value of 20, but when we execute our code line by line we execute `console.log(bar);` before `var bar = 20;`, due to this reason `undefined` is logged. 
+
+- It does not log 10 because the variable `bar` is already declared in function `logBar()`, so the JavaScript engine will not lookup for `bar` in the outer scope.
+- It does not log 20 because at the creation phase of JavaScript the variable `bar` has been assigned the value of `undefined`, this process is called hoisting. It is at the execution phase the variable `bar` will be assigned value of 20, but when we execute our code line by line we execute `console.log(bar);` before `var bar = 20;`, due to this reason `undefined` is logged.
