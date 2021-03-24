@@ -269,3 +269,5 @@ It will log `undefined` because of the following reasons
 
 - It does not log 10 because the variable `bar` is already declared in function `logBar()`, so the JavaScript engine will not lookup for `bar` in the outer scope.
 - It does not log 20 because at the creation phase of JavaScript the variable `bar` has been assigned the value of `undefined`, this process is called hoisting. It is at the execution phase the variable `bar` will be assigned value of 20, but when we execute our code line by line we execute `console.log(bar);` before `var bar = 20;`, due to this reason `undefined` is logged.
+
+## What is Temporal dead zone(TDZ)?
