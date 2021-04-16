@@ -99,3 +99,18 @@ Expensive function call is a function call that that consumes lot of time and me
 :::note
 In the context of computer programs, the two major resources we have are time and memory.
 :::
+
+## How can you avoid reflow?
+
+- Change classes at the lowest level of the DOM tree.
+- Avoid repeatedly modifying inline styles.
+- Minimize CSS rules, and remove unused CSS rules.
+- Avoid unnecessary complex CSS selectors - descendant selectors in particular - which require more CPU power to do selector matching.
+- Trade smoothness for speed if you're doing an animation in JavaScript.
+- Avoid table layouts.
+- Batch DOM manipulations.
+- Debounce window size events.
+
+## What is layout thrashing?
+
+Layout thrashing occurs when JavaScript violently writes, then read, from the DOM, multiple times causing document reflows.
