@@ -103,3 +103,24 @@ Both of the console.log will return "string"
 
 - `typeof 1` is `"number"` and `typeof "number"` is `string`
 - `typeof true` is `"boolean"` and `typeof "boolean"` is `string`
+
+## How to convert 'true' & 'false' string to a boolean in JavaScript?
+
+do's:
+
+```js
+const value = "true";
+const bool = value === "true"; // true
+
+const value = "false";
+const bool = value === "true"; // false
+```
+
+dont's:
+
+```js
+const value = "false";
+const bool = Boolean(value); // true
+```
+
+Any string which is not empty will evaluate to `true` by using Boolean object.
