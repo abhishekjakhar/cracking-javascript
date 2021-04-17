@@ -22,6 +22,8 @@ If the word function is literally the first thing in statement then it is functi
 
 ## What is difference between function declaration and function expression?
 
+The main difference between a function expression and a function declaration is the function name, which can be omitted in the function expressions to create anonymous functions.
+
 ## What is IIFE, what are benefits of using IIFE pattern?
 
 IIFE stands for immediately invoked function expression.
