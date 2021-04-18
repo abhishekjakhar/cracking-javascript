@@ -35,6 +35,56 @@ The 'this' keyword is gonna end up pointing at the object that is used to invoke
 Whenever we’re trying to figure out what the this keyword is referencing we need to look to the invocation and see what’s to the “left of the dot”. In the first invocation, user is to the left of the dot which means this is going to reference user. In the second invocation, mother is to the left of the dot which means this is going to reference mother.
 :::
 
+## Explain output
+
+```js
+function foo() {
+  console.log(this.a);
+}
+
+function doFoo(fn) {
+  fn();
+}
+
+var obj = {
+  a: 2,
+  foo: foo,
+};
+
+var a = "oops, global";
+
+doFoo(obj.foo);
+```
+
+The result would be "oops, global", because call site is what matters, and the call-site is fn(), which is a plain, undecorated call, and thus the default binding applies. It's quite common that our function callbacks lose their this binding.
+
+## Explain output
+
+```js
+function foo() {
+  console.log(this.a);
+}
+
+var obj = {
+  a: 2,
+  foo: foo,
+};
+
+var a = "oops, global";
+
+setTimeout(obj.foo, 100);
+```
+
+The result would be "oops, global", because the call site is plain, undecorated call, and this the default binding applies.
+
+The implementation of setTimeout is given below
+
+```js
+function setTimeout(fn, delay) {
+`  fn(); // <-- call-site!
+}
+```
+
 ## Explain call, bind and apply with examples
 
 ### call()
