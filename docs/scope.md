@@ -182,7 +182,7 @@ var lastName = "Uzumaki";
 
 function getName() {
   function getFirstName() {
-    return name;
+    return firstName;
   }
 
   function getLastName() {
