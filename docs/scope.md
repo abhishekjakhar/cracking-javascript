@@ -273,3 +273,8 @@ It will log `undefined` because of the following reasons
 - It does not log 20 because at the creation phase of JavaScript the variable `bar` has been assigned the value of `undefined`, this process is called hoisting. It is at the execution phase the variable `bar` will be assigned value of 20, but when we execute our code line by line we execute `console.log(bar);` before `var bar = 20;`, due to this reason `undefined` is logged.
 
 ## What is Temporal dead zone(TDZ)?
+
+In ES6, accessing a let or const variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone.
+
+The reaon TDZ exists is not because of let, it is because of const. Think about const being attached inside of a block scope.
+Imagine if const initialized itself to undefined. And then on line 1 of the block you did console.log of that variable and you saw it undefined, and then later you saw it with value 42. Technically, that const would have two different values at two different times, which academically violates the concept of a const. So they said we have to prevent you from accessing a variable earlier in the scope then when it's been assigned one and only one value, so that you can't observe it in that intermediate state.
