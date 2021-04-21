@@ -54,6 +54,31 @@ Such an iteration is called a tick in the Event loop.
 The event loop says I am gonna check before every single line of code run, is the call stack empty? Is there something in the queue?. If the call stack is not empty, if there is still further global code to run, then I will not even go look at the queue. But, if the call stack is empty I will go to the queue, I will grab the function from there and I will put it on the call stack.
 :::
 
+## Implement event loop
+
+```js
+// `eventLoop` is an array that acts as a queue
+// (first-in, first-out)
+let eventLoop = [];
+let event;
+
+// kep going "forever"
+while (true) {
+  // perform a "tick"
+  if (eventLoop.length > 1) {
+    // get the next event in the queue
+    const event = eventLoop.shift();
+
+    // now, execute the next event
+    try {
+      event();
+    } catch (err) {
+      reportError(err);
+    }
+  }
+}
+```
+
 ## What is callback queue?
 
 ## What will be the output of code given below?

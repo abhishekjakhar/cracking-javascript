@@ -138,6 +138,44 @@ getData(callbackFunction(x) {
 
 Now, in the example given above we make a asynchronous request on click of button. If request succeeds, we make a second request. If second request succeeds, we update our UI by using the data which we are getting from both the requests. This pattern leads us to the nested callbacks, which is called callback hell.
 
+## Callback hell example
+
+Callback hell has nothing to do with the nesting/indentation. It's a far deeper problem than that.
+
+```js
+listen("click", function handler(evt) {
+  setTimeout(function request() {
+    ajax("url", function response(text) {
+      if (text == "hello") {
+        handler();
+      } else if (text == "world") {
+        request();
+      }
+    });
+  }, 500);
+});
+```
+
+```js
+listen("click", handler);
+
+function handler() {
+  setTimeout(request, 500);
+}
+
+function request() {
+  ajax("url", response);
+}
+
+function response(text) {
+  if (text == "hello") {
+    handler();
+  } else if (text == "world") {
+    request();
+  }
+}
+```
+
 ## What are drawbacks of using callback?
 
 1. Callback hell
