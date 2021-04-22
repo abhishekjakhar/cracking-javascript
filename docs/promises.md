@@ -85,25 +85,45 @@ They are esentially a returned object to which you attach callback functions, ra
 
 - A fulfilled or rejected promise is settled, and must not transition into any other state. It can only be settled once.
 
-## Promise polyfill
+## Custom Promise
 
 ```js
-function Promise(executor) {
-  let onResolve;
+const PENDING = 0;
+const FULLFILLED = 1;
+const REJECTED = 2;
 
-  function resolve(val) {
-    onResolve(val);
+function CustomPromise(executor) {
+  let state = PENDING;
+  let value = null;
+  let handlers = [];
+  let catches = [];
+
+  function resolve(result) {
+    if (state !== PENDING) return;
+
+    state = FULFILLED;
+    value = result;
+
+    handlers.forEach((h) => h(value));
+  }
+
+  function reject(err) {
+    if (state !== PENDING) return;
+
+    state = REJECTED;
+    value = err;
+
+    catches.forEach((c) => c(err));
   }
 
   this.then = function (callback) {
-    onResolve = callback;
-    return this;
+    if (state === FULLFILLED) {
+      callback(value);
+    } else {
+      handlers.push(callback);
+    }
   };
 
-  this.catch = function (callback) {
-    return this;
-  };
-
-  executor(resolve);
+  executor(resolve, reject);
 }
 ```
