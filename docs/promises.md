@@ -84,3 +84,26 @@ They are esentially a returned object to which you attach callback functions, ra
 - Once a promise is settled, it must have a value(which may be undefined). That value must not change. It is immutable once settled.
 
 - A fulfilled or rejected promise is settled, and must not transition into any other state. It can only be settled once.
+
+## Promise polyfill
+
+```js
+function Promise(executor) {
+  let onResolve;
+
+  function resolve(val) {
+    onResolve(val);
+  }
+
+  this.then = function (callback) {
+    onResolve = callback;
+    return this;
+  };
+
+  this.catch = function (callback) {
+    return this;
+  };
+
+  executor(resolve);
+}
+```

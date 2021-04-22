@@ -140,6 +140,57 @@ const newGreetFn = greet.bind(user, languages[0], languages[1], languages[2]);
 newGreetFn(); // Heyo, my name is Abhishek and I know HTML, CSS and JavaScript
 ```
 
+## What is partial function application?
+
+We create a new function by fixing some parameters of the existing one.
+
+The call to mul.bind(null, 2) creates a new function double that passes calls to mul, fixing null as the context and 2 as the first argument.
+
+```js
+function mul(a, b) {
+  return a * b;
+}
+
+let double = mul.bind(null, 2);
+
+double(3); // 6
+double(4); // 8
+double(5); // 10
+```
+
+## Bind polyfill
+
+```js
+// ES6 Syntax
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function () {
+    const thatFunc = this;
+    const thatArg = arguments[0];
+    const outerArgs = [...arguments].slice(1);
+    return function () {
+      const innerArgs = [...arguments];
+      const funcArgs = [...outerArgs, ...innerArgs];
+      thatFunc.apply(thatArg, funcArgs);
+    };
+  };
+}
+
+// ES5 Syntax
+if (!Function.prototype.bind) {
+  const slice = Array.prototype.slice;
+  Function.prototype.bind = function () {
+    var thatFunc = this;
+    var thatArg = arguments[0];
+    var outerArgs = slice.call(arguments, 1);
+    return function () {
+      var innerArgs = slice.call(arguments);
+      var funcArgs = outerArgs.concat(innerArgs);
+      thatFunc.apply(thatArg, funcArgs);
+    };
+  };
+}
+```
+
 ## How does 'this' keyword behaves differently in arrow functions?
 
 An arrow function does not define a 'this' keyword of it's own, which means if you put a 'this' keyword inside of an arrow function, it's gonna behave exactly like any other variable, which means it's going to lexically resolve to some enclosing scope that does define 'this' key word.
