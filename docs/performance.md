@@ -88,6 +88,21 @@ Memoization is an optimization technique that speeds up application by storing t
 
 ## Write your own memoize function?
 
+```js
+function memoize(fun) {
+  let cache = {};
+  return function (n) {
+    if (cache[n] !== undefined) {
+      return cache[n];
+    } else {
+      let result = fun(n);
+      cache[n] = result;
+      return result;
+    }
+  };
+}
+```
+
 ## What is cache?
 
 A cache is a temporary data store that holds data so that future request for that same data can be served faster.
