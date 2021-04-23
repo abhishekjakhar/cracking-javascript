@@ -61,7 +61,7 @@ If we have not throttled the function which fire on every button click we would 
 - We are passing a function(fn) and a limit (limit) into the throttle function
 - isThrottled is the variable which we use to keep track of if throttle period has passed or not
 
-THe first call to our function fn will execute and then we will set the isThrottled to true, also the isThrottled will become false again when our limit period has passed. Now, if throttle is true and limit period has not passed, our function fn during this period will not fire. Once it is passed, the next invocation will fire and the process will repaeat.
+The first call to our function fn will execute and then we will set the isThrottled to true, also the isThrottled will become false again when our limit period has passed. Now, if throttle is true and limit period has not passed, our function fn during this period will not fire. Once it is passed, the next invocation will fire and the process will repeat.
 
 ```jsx
 function throttle(fn, limit) {
@@ -89,19 +89,25 @@ Memoization is an optimization technique that speeds up application by storing t
 ## Write your own memoize function?
 
 ```js
-function memoize(fun) {
+function memoize(fn) {
   let cache = {};
   return function (n) {
-    if (cache[n] !== undefined) {
+    if (cache[n]) {
       return cache[n];
     } else {
-      let result = fun(n);
+      let result = fn(n);
       cache[n] = result;
       return result;
     }
   };
 }
 ```
+
+## When to memoize a function?
+
+- Expensive function calls i.e functions that carry out heavy computation.
+- For recursive functions with recurring input values.
+- For pure functions i.e functions that return the same output each time they are called with a same input.
 
 ## What is cache?
 

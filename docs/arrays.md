@@ -12,7 +12,7 @@ function flattenArray(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     if (Array.isArray(arr[i])) {
-      result.push(...flattenArray(arr[i]));
+      newArray.push(...flattenArray(arr[i]));
     } else {
       newArray.push(arr[i]);
     }
