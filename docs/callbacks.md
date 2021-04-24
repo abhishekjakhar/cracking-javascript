@@ -166,6 +166,23 @@ function reduce(array, callback, initialValue) {
   }
   return initialValue;
 }
+
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+reduce([1, 2, 3], reducer, 0); // 6
+```
+
+### Array.prototype.reducer Polyfill
+
+```js title="reduce"
+!(Array.prototype.reduce) {
+  Array.prototype.reduce = function(callback, initialValue) {
+    for (const element of this) {
+      initialValue = callback(initialValue, element);
+    }
+    return initialValue;
+  }
+}
 ```
 
 ## What are arrow functions?
