@@ -81,7 +81,7 @@ The implementation of setTimeout is given below
 
 ```js
 function setTimeout(fn, delay) {
-`  fn(); // <-- call-site!
+  fn(); // <-- call-site!
 }
 ```
 

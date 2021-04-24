@@ -49,12 +49,71 @@ map([1, 2, 3], addTwo); // [3,4,5]
 
 ```js title="map"
 function map(array, callback) {
-  let result = [];
-  for (let elem of array) {
-    result.push(callback(elem));
+  let mappedArray = [];
+  for (let element of array) {
+    mappedArray.push(callback(element));
   }
-  return result;
+  return mappedArray;
 }
+
+const numbers = [2, 4, 8, 16];
+const result = map(numbers, (number) => number * 2); // [4, 8, 16, 32];
+```
+
+### Array.prototype.map Polyfill
+
+```js title="map"
+!(Array.prototype.map) {
+  Array.prototype.map = function(callback) {
+    let mappedArray = [];
+    for (const element of this) {
+      mappedArray.push(callback(element));
+    }
+    return mappedArray;
+  }
+}
+
+const numbers = [2, 4, 8, 16];
+const result = numbers.map(number => number * 2); // [4, 8, 16, 32]
+```
+
+### Create a function called `filter` that takes two inputs:
+
+- an array of numbers
+- a callback function - a function that is applied to each element of the array
+
+```js title="filter"
+function filter(array, callback) {
+  let filteredArray = [];
+  for (const element of array) {
+    if (callback(element)) {
+      filteredArray.push(element);
+    }
+  }
+  return filteredArray;
+}
+
+const numbers = [2, 4, 8, 16];
+const result = filter(numbers, (number) => number > 5); // [8, 16]
+```
+
+### Array.prototype.filter Polyfill
+
+```js title="filter"
+!(Array.prototype.filter) {
+  Array.prototype.filter = function(callback) {
+    let filteredArray = [];
+    for (const element of this) {
+      if (callback(element)) {
+        filteredArray.push(element);
+      }
+    }
+    return filteredArray;
+  }
+}
+
+const numbers = [2, 4, 8, 16];
+numbers.filter(number => number < 5); // [2, 4]
 ```
 
 ### Create a function called `forEach` that takes two inputs:
@@ -69,6 +128,26 @@ function forEach(array, callback) {
   for (let elem of array) {
     callback(elem);
   }
+}
+
+const numbers = [2, 4, 8, 16];
+forEach(numbers, (number) => console.log(number));
+
+// 2
+// 4
+// 8
+// 16
+```
+
+### Array.prototype.forEach Polyfill
+
+```js title="forEach"
+if (!Array.prototype.forEach) {
+  Array.prototype.forEach = function (callback) {
+    for (const element of this) {
+      callback(element);
+    }
+  };
 }
 ```
 

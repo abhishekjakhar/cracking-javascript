@@ -1,5 +1,6 @@
 module.exports = {
   questions: [
+    "html",
     "types",
     "coercion",
     "scope",
