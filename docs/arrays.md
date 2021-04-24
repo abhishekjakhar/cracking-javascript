@@ -7,19 +7,38 @@ sidebar_label: Arrays
 ## Flatten Array
 
 ```js
-function flattenArray(arr) {
-  let newArray = [];
+function flatten(arr) {
+  let result = [];
 
   for (let i = 0; i < arr.length; i++) {
     if (Array.isArray(arr[i])) {
-      newArray.push(...flattenArray(arr[i]));
+      result.push(...flatten(arr[i]));
     } else {
-      newArray.push(arr[i]);
+      result.push(arr[i]);
     }
   }
 
-  return newArray;
+  return result;
 }
+```
+
+```js
+function flatten(arr) {
+  let result = [];
+
+  arr.forEach((i) => {
+    if (Array.isArray(i)) {
+      result.push(...flatten(i));
+    } else {
+      result.push(i);
+    }
+  });
+
+  return result;
+}
+
+const nested = [1, 2, 3, [4, 5, [6, 7], 8, 9]];
+flatten(nested); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 ## How to remove a specific item from an array?
