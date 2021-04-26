@@ -124,3 +124,77 @@ const bool = Boolean(value); // true
 ```
 
 Any string which is not empty will evaluate to `true` by using Boolean object.
+
+## Falsy values in JavaScript
+
+In JavaScript there are only six falsy values. Both null and undefined are two of the falsy values.
+
+- false
+- 0
+- ""
+- null
+- undefined
+- NaN
+
+## Difference between null and undefined?
+
+### null
+
+- null is a non empty or non-existent value
+- null must be assigned
+
+```js
+let a = null;
+
+console.log(a); // null
+```
+
+### undefined
+
+- variable that has been declared, but at the moment has no value in it.
+
+```js
+let b;
+
+console.log(b); // undefined
+```
+
+```js
+let c = undefined;
+
+console.log(c); // undefined
+```
+
+```js
+let d = {};
+
+console.log(d.fake); // undefined
+```
+
+## Practical difference between null and undefined?
+
+```js
+let logHi = (str = "hi") => {
+  console.log(str);
+};
+```
+
+The code above creates a function named logHi. This function requires one parameter and sets the default of that parameter to hi if it isn’t supplied. Here’s what that looks like:
+
+```js
+logHi(); // hi
+```
+
+We can also supply a parameter to overwrite this default:
+
+```js
+logHi("bye"); // bye
+```
+
+With default parameter, undefiend will use the default while null does not.
+
+```js
+logHi(undefined); // hi
+
+logHi(null); // null
+```
