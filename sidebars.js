@@ -19,5 +19,6 @@ module.exports = {
     "arrays",
     "miscellaneous",
     "polyfill",
+    "browser-storage",
   ],
 };
