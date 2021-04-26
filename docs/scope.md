@@ -4,6 +4,10 @@ title: Scope
 sidebar_label: Scope
 ---
 
+## What is scope?
+
+Scope in JavaScript refers to the current context of code, which determines the accessibility of variables to JavaScript.
+
 ## What is global execution context?
 
 The first execution context which gets created when the JavaScript engine runs your code is called <br/> "Global Execution Context".
@@ -209,6 +213,10 @@ All curly braces are not scope., they are only a scope if they have a let or a c
 If you have a variable that belongs to the entire scope of the function, the correct semantic way to signal to your reader is not to use a let at the top level of your function scope, but to use a var.
 
 lets are supposed to signal a very localized usage of a variable, ideally only within a couple of lines of code.
+
+## What is strict mode?
+
+"use strict" is a ES5 feature in JavaScript that makes our code in Strict Mode in functions or entire scripts. Strict mode helps to avoid bugs early on in our code and adds restrictions to it.
 
 ## How do you apply strict mode?
 
