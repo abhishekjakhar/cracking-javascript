@@ -40,7 +40,7 @@ var thunk = function (cb) {
 };
 
 thunk(function (sum) {
-  sum; // 25
+  console.log(sum); // 25
 });
 ```
 

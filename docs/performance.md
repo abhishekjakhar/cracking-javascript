@@ -135,3 +135,61 @@ In the context of computer programs, the two major resources we have are time an
 ## What is layout thrashing?
 
 Layout thrashing occurs when JavaScript violently writes, then read, from the DOM, multiple times causing document reflows.
+
+## How to improve website performance?
+
+### Optimize your images
+
+- Choose the right image format
+- Choose the correct level of compression
+- Use Imagemin to compress images
+- Replace animated GIFs with video for faster page loads
+- Serve responsive images
+- Serve images with correct dimensions
+- Use WebP images
+- Use image CDNs to optimize images
+
+### Lazy-load images and video
+
+- Use lazy-loading to improve loading speed
+- Lazy-loading images
+- Lazy-loading video
+
+### Optimize your JavaScript
+
+- Reduce JavaScript payloads with code splitting
+- Remove unused code
+- Minify and compress network payloads
+- Serve mordern code to mordern browsers for faster page loads
+- Publish, ship and install modern JavaScript for faster applications
+
+### Optimize your resource delivery
+
+- CDNs
+- Prioritize resources
+- Preload critical assets to improve loading speed
+- Prefetch resources to speed up future navigations
+- Fast playback with audio and video preload
+
+### Optimize your CSS
+
+- Defer non-critical CSS
+- Minify CSS
+- Extract critical CSS
+- Optimize CSS background images with media queries
+
+### Optimize your third-party resources
+
+- Third-party JavaScript performance
+- Identify slow third-party JavaScript
+- Efficiently load third-party JavaScript
+
+### Optimize WebFonts
+
+- Avoid invisible text during font loading
+- Optimize WebFont loading and rendering
+- Reduce WebFont Size
+
+### Optimize for network quality
+
+- Adaptive serving based on network quality

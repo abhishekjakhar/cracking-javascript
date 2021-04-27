@@ -220,6 +220,8 @@ const multiplyBy2 = (input) => input * 2;
 const output = multiplayBy2(3); // 6
 ```
 
+## 'this' in arrow functions?
+
 ## What is callback hell?
 
 In JavaScript the only way to delay a computation so that it runs after the asynchronous call completes is to put the delayed code inside a callback function.
@@ -316,3 +318,25 @@ gods.forEach(function (eachName, index) {
 ```
 
 In this example given above we loop through an array of Greek gods and print the index numbers and values to the console. The expected parameter of forEach() is a callback function, which itself takes two parameters, a reference to the array name and index values. However, it doesn't wait for anything — it runs immediately.
+
+## What is functional programming?
+
+Functional programming is a declarative programming paradigm or pattern on how we build our applications with funtions using expressions that calculates a value without mutating or changing the arguments that are passed to it.
+
+## Why functions are called first class objects?
+
+In JavaScript, functions are first-class objects, because they can be treated like any other variable.
+
+- They can be assigned to variables.
+- They can be properties of an object called methods.
+- They can be item in array.
+- They can be passed as arguments to a function.
+- They can be returned as values of a function.
+
+## What is arguments object?
+
+The arguments object is a collection of parameter values pass in a function. It's an Array-like object because it has a length property and we can access individual values using array indexing notation arguments[1] but it does not have the built-in methods in an array forEach, reduce, filter and map.
+
+It helps us know the number of arguments pass in a function.
+
+We can convert the arguments object into an array using the Array.prototype.slice.
