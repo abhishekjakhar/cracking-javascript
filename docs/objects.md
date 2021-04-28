@@ -356,4 +356,23 @@ function deepEqual(obj1, obj2) {
 }
 ```
 
-## Implement spread operator
+## Implement deep copy function
+
+```js
+function deepCopy(inObject) {
+  let outObject;
+
+  outObject = Array.isArray(inObject) ? [] : {};
+
+  for (let key in inObject) {
+    let value = inObject[key];
+    if (typeof value !== "object" || value === null) {
+      outObject[key] = value;
+    } else {
+      outObject[key] = deepCopy(value);
+    }
+  }
+
+  return outObject;
+}
+```
