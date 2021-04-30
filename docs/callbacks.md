@@ -359,4 +359,14 @@ function uppercase(input) {
 function reverse(input) {
   return input.split("").reverse().join("");
 }
+
+function pipe(...outerArguments) {
+  return function (innerArguments) {
+    return outerArguments.reduce((currentValue, currentFunction) => {
+      return currentFunction(currentValue);
+    }, innerArguments);
+  };
+}
+
+pipe(getName, uppercase, reverse)({ name: "Abhishek" });
 ```
