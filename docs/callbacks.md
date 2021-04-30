@@ -340,3 +340,23 @@ The arguments object is a collection of parameter values pass in a function. It'
 It helps us know the number of arguments pass in a function.
 
 We can convert the arguments object into an array using the Array.prototype.slice.
+
+## Create a pipe function given below
+
+```js
+pipe(getName, uppercase, reverse)({ name: "Abhishek" }); // 'KEHSIHBA'
+```
+
+```js
+function getName(input) {
+  return input.name;
+}
+
+function uppercase(input) {
+  return input.toUpperCase();
+}
+
+function reverse(input) {
+  return input.split("").reverse().join("");
+}
+```

@@ -162,3 +162,27 @@ function log() {
   console.log(message);
 }
 ```
+
+## Explain the output
+
+```js
+function outer() {
+  let counter = 0;
+  return function inner() {
+    return counter++;
+  };
+}
+
+const bar = outer();
+console.log(bar());
+console.log(bar());
+
+const baz = outer();
+console.log(baz());
+console.log(baz());
+
+// 0
+// 1
+// 0
+// 1
+```
