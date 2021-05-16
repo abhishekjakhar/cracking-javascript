@@ -243,4 +243,17 @@ Let's say you see a web page load and you think it's done, the largest contentfu
 
 The browser time delay between the user's first click and execution of application code. (Don't Load Too Much)
 
-## How to measure performance?
+## What is Beacon API?
+
+The Beacon API is used to send an asynchronous and non-blocking request to a web server. The request does not expect a response. Unlike requests made using XMLHttpRequest or the Fetch API, the browser guarantees to initiate beacon requests before the page is unloaded and to run them to completion.
+
+- The data is sent Asynchronously
+- The data is sent reliabily
+- It doesn't impact the loading of next page
+
+[sendBeacon](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon)
+
+```js
+navigator.sendBeacon(url);
+navigator.sendBeacon(url, data);
+```
