@@ -239,7 +239,7 @@ The movement distance and impact of page elements during the entire lifetime of 
 
 ## FID
 
-Let's say you see a web page load and you think it's done, the largest contentful paint has happened, and you're ready to start doing things. For example, a website has loaded and you are going to click on an article. Well, in order to improve their scores, they might have deferred a bunch of their work to load later after the content has happened. If you deferred so much content, so much JavaScript still needs to be run, that the browser is busy doing that when the user first clicks. There's gonna be a delay, between the time when the page looks ready, and the user interacts with it, until the time the first click handler can fire.
+Let's say you see a web page load and you think it's done, the largest contentful paint has happened, and you're ready to start doing things. For example, a website has loaded and you are going to click on an article. Well, in order to improve their scores, they might have deferred a bunch of their work to load later after the content has happened. But if they deferred so much content, so much JavaScript still needs to be run, that the browser is busy doing that when the user first clicks. There's gonna be a delay, between the time when the page looks ready, and the user interacts with it, until the time the first click handler can fire.
 
 The browser time delay between the user's first click and execution of application code. (Don't Load Too Much)
 
