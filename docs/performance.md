@@ -193,3 +193,54 @@ Layout thrashing occurs when JavaScript violently writes, then read, from the DO
 ### Optimize for network quality
 
 - Adaptive serving based on network quality
+
+## Why is performance important?
+
+- Google says so - Starting from 2021 Google will rank your website based on performance score.
+- Angry and frustrated users don't sit around long - because you're taking too long to show them their stuff
+
+## Psychology of Waiting
+
+- People want to start their activity
+- Bored waits feel slower
+- Anxious waits feel slower
+- Unexplained waits feel slower
+- Uncertain waits feel slower
+- People will wait for value
+
+## What are web vitals?
+
+Rather than one metric that measures from start of the page to the end of the page. We have four different metrics that measure four different aspects of performance, and these are called core web vitals.
+
+- FCP: First Contentful Paint
+- LCP: Largest Contentful Paint
+- CLS: Cumulative Layout Shift
+- FID: First Input Delay
+
+These metrics are alive and impacting your site today.
+
+## FCP
+
+This is the time from the start, when the user first clicks the link or enters the URL, until the first meaningful content enters the page. It's something was rendered.
+
+The time until the user sees an indication that the page is loading. (Responding Quick)
+
+## LCP
+
+Throughout the loading cycle, different parts of your screen will draw, and we can measure how much of the screen has been drawn. The time at which the largest percentage of the screen was rendered, is the largest contentful paint.
+
+The time until user sees most of the page and believes it is (almost) ready. (Get To The Point)
+
+## CLS
+
+You come to a page and you go to click a button, but just as you're about to click a button. Some reallby obnoxious thing loads in asynchronously and pushes the content down and you almost just click on an ad. This movement is called the layout shift, and the cumulative layout shift is the measurement of all the times that this happens during the lifetime of your page.
+
+The movement distance and impact of page elements during the entire lifetime of the document the user sees. (Don't move stuff)
+
+## FID
+
+Let's say you see a web page load and you think it's done, the largest contentful paint has happened, and you're ready to start doing things. For example, a website has loaded and you are going to click on an article. Well, in order to improve their scores, they might have deferred a bunch of their work to load later after the content has happened. If you deferred so much content, so much JavaScript still needs to be run, that the browser is busy doing that when the user first clicks. There's gonna be a delay, between the time when the page looks ready, and the user interacts with it, until the time the first click handler can fire.
+
+The browser time delay between the user's first click and execution of application code. (Don't Load Too Much)
+
+## How to measure performance?
