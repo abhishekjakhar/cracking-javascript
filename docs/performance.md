@@ -257,3 +257,40 @@ The Beacon API is used to send an asynchronous and non-blocking request to a web
 navigator.sendBeacon(url);
 navigator.sendBeacon(url, data);
 ```
+
+## Improving FCP
+
+### Quick Servers
+
+- Sized Correctly - You need to make sure that you have enough overhead in the machines that you've selected to deliver the content that you need.
+- Minimal Processing - Minimize the processing you need to do in order to fulfill the request.
+- Network Bandwidth - The bandwidth you have to your servers need to be big enough in order to fulfill all the requests that you have coming in at once.
+
+### Deliver Small Documents
+
+- Content Size - You need to deliver a smaller payload as you can and still get the effectiveness that you need.
+- Compression - Even if you're sending a 100K HTML document, how you compress that document over the wire can greatly improve that speed. (Gzip/Brotli)
+
+### Short Cloud Network Hops
+
+- CDN - You need to use CDN to reduce the distance, when a user makes a request, the CDN will pick it up. They will call your stuff if they don't already have a copy, and they will cache a copy of your response and serve it to every single user who might ask for it. Basically, we are not processing each request across the entire network.
+
+## Improving LCP
+
+### Defer Resources Until Later
+
+- async/defer
+- lazy load images
+
+### Optimize Images
+
+- responsive images using srcset & sizes attribute
+- remove unecessary attributes in images using imagemin or other tools to decrease the size of image
+
+### Reduce Request Overhead
+
+- Reduce Overhead - With the help of HTTP/2 we can reuse connections, we don't have to do TCP connection & SSL handshake every time, we can do it once and ask for all the documents together
+- Caching - Hude benefits on returning requests
+- Preloading - rel="preconnect", rel="preload"
+
+## Difference between preload and preconnect
