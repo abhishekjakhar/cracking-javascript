@@ -20,6 +20,7 @@ module.exports = {
     "miscellaneous",
     "polyfill",
     "browser-storage",
-    "api"
+    "security",
+    "api",
   ],
 };
