@@ -376,3 +376,9 @@ function deepCopy(inObject) {
   return outObject;
 }
 ```
+
+## What is Object.assign
+
+```js
+
+```

@@ -176,7 +176,7 @@ A type error occurs when the variable exists, but the operation you're trying to
 
 ### ReferenceError
 
-A reference error occur when you try to us a variable that doesn't exist at all.
+A reference error occur when you try to use a variable that doesn't exist at all.
 
 ## Explain output
 

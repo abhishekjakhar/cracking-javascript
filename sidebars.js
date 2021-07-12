@@ -22,5 +22,6 @@ module.exports = {
     "browser-storage",
     "security",
     "api",
+    "accessibility",
   ],
 };
