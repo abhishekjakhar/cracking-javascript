@@ -91,16 +91,30 @@ Memoization is an optimization technique that speeds up application by storing t
 ```js
 function memoize(fn) {
   let cache = {};
-  return function (n) {
-    if (cache[n]) {
-      return cache[n];
-    } else {
-      let result = fn(n);
-      cache[n] = result;
-      return result;
+  return function (...args) {
+    const key = JSON.stringify(args);
+    if (!cache[key]) {
+      cache[key] = fn.apply(this, args);
     }
+    return cache[key];
   };
 }
+
+function square(n) {
+  let result = 0;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      result++;
+    }
+  }
+  return result;
+}
+
+const memoizedSquare = memoize(square);
+
+console.log(memoizedSquare(140));
+console.log(memoizedSquare(140));
+console.log(memoizedSquare(140));
 ```
 
 ## When to memoize a function?
@@ -112,6 +126,71 @@ function memoize(fn) {
 ## What is cache?
 
 A cache is a temporary data store that holds data so that future request for that same data can be served faster.
+
+## Implement a caching mechanism to store results of API calls
+
+```js
+window.cache = function () {
+  let cacheStorage = {};
+
+  function _init() {
+    const storage = sessionStorage.getItem("cacheStorage");
+    if (storage) {
+      cacheStorage = JSON.parse(storage);
+      sessionStorage.removeItem("cacheStorage");
+    } else {
+      cacheStorage = {};
+    }
+  }
+
+  _init();
+
+  function _add(key, value) {
+    window.cache.storage[key] = value;
+  }
+
+  function _reset(key) {
+    if (key) {
+      delete window.cache.storage[key];
+    } else {
+      window.cache.storage = {};
+    }
+  }
+
+  window.addEventListener("beforeunload", () => {
+    sessionStorage.setItem(
+      "cacheStorage",
+      JSON.stringify(window.cache.storage)
+    );
+  });
+
+  return {
+    storage: cacheStorage,
+    urlsOfApiCallInProgress: [],
+    add: _add,
+    reset: _reset,
+  };
+};
+
+let promise = {};
+
+window.cachedFetch = function (url, options) {
+  if (!window.cache.storage[url]) {
+    if (window.cache.urlsOfApiCallInProgress.includes(url)) {
+      return promise[url];
+    } else {
+      promise[url] = fetch(url, options)
+        .then((res) => res.json())
+        .then((data) => {
+          window.cache.add(url, data);
+          return data;
+        });
+    }
+    return promise[url];
+  }
+  return Promise.resolve(window.cache.storage[url]);
+};
+```
 
 ## What do you mean by expensive function call?
 

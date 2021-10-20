@@ -89,7 +89,7 @@ They are esentially a returned object to which you attach callback functions, ra
 
 ```js
 const PENDING = 0;
-const FULLFILLED = 1;
+const FULFILLED = 1;
 const REJECTED = 2;
 
 function CustomPromise(executor) {
@@ -99,8 +99,6 @@ function CustomPromise(executor) {
   let catches = [];
 
   function resolve(result) {
-    if (state !== PENDING) return;
-
     state = FULFILLED;
     value = result;
 
@@ -108,22 +106,72 @@ function CustomPromise(executor) {
   }
 
   function reject(err) {
-    if (state !== PENDING) return;
-
     state = REJECTED;
     value = err;
 
-    catches.forEach((c) => c(err));
+    catches.forEach((c) => c(value));
   }
 
-  this.then = function (callback) {
-    if (state === FULLFILLED) {
-      callback(value);
+  this.then = function (cb) {
+    if (state === FULFILLED) {
+      cb(value);
     } else {
-      handlers.push(callback);
+      handlers.push(cb);
+    }
+  };
+
+  this.catch = function (cb) {
+    if (state === REJECTED) {
+      cb(value);
+    } else {
+      catches.push(cb);
     }
   };
 
   executor(resolve, reject);
 }
+
+CustomPromise.resolve = function (value) {
+  return new CustomPromise((resolve, reject) => {
+    resolve(value);
+  });
+};
+
+CustomPromise.reject = function (value) {
+  return new CustomPromise((resolve, reject) => {
+    reject(value);
+  });
+};
+
+CustomPromise.all = function (promises) {
+  return new CustomPromise((resolve, reject) => {
+    let fulfilledPromises = [];
+    let counter = 0;
+
+    promises.forEach((promise, index) => {
+      promise.then((value) => {
+        counter++;
+        fulfilledPromises[index] = value;
+        if (counter === promises.length) {
+          resolve(fulfilledPromises);
+        }
+      });
+    });
+  });
+};
+
+const getText = new CustomPromise((resolve, reject) => {
+  setTimeout(() => resolve("Hello work"), 2000);
+});
+
+getText.then((val) => console.log(val));
+
+var p2 = CustomPromise.resolve(3);
+var p3 = CustomPromise.resolve(3);
+
+var promisesArr = [getText, p2, p3];
+
+CustomPromise.all(promisesArr).then((result) => {
+  console.log(result);
+});
 ```

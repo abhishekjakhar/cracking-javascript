@@ -376,3 +376,66 @@ function deepCopy(inObject) {
   return outObject;
 }
 ```
+
+## Flatten an Object
+
+```js
+var myObj = {
+  name: "Aakash",
+  surname: "Sardana",
+  address: {
+    city: {
+      sector: "16",
+      houesNo: "168",
+    },
+  },
+  orders: [
+    {
+      orderId: 1234,
+      productName: "Tshirt",
+    },
+    {
+      orderId: 2345,
+      productName: "Shirt",
+    },
+    {
+      orderId: 3456,
+      productName: "Jacket",
+    },
+  ],
+  products: ["Tshirt", "Shirt", "Jacket"],
+  alternatePhoneNo: undefined,
+  alternateAddress: null,
+  orderPlacedDate: new Date(),
+  getFullName: function () {
+    console.log(`${this.name} ${this.surname}}`);
+  },
+};
+
+function getRawObjectType(target) {
+  const str = Object.prototype.toString.call(target);
+  return str.slice(8, -1);
+}
+
+function objectFlattenHelper(target, parent, flattenedObj = {}) {
+  for (let key in target) {
+    let propName = parent ? parent + "_" + key : key;
+    const type = getRawObjectType(target[key]);
+    if (type === "Object") {
+      objectFlattenHelper(target[key], propName, flattenedObj);
+    } else {
+      flattenedObj[propName] = target[key];
+    }
+  }
+  return flattenedObj;
+}
+
+function objectFlatten(target) {
+  const rawObjectType = getRawObjectType(target);
+  if (rawObjectType !== "Object") {
+    return target;
+  }
+
+  return objectFlattenHelper(target);
+}
+```

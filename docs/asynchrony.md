@@ -106,3 +106,46 @@ The callback function `work()` will get placed in Callback Queue and will only b
 :::note
 You could have million **console.log** in between **Started** and **Ended**, the work callback will only get called after all synchronous code is finished running, which is when all million **console.log** will be finished running.
 :::
+
+## Implement Async Task Runner
+
+```js
+function TaskRunner(concurrency) {
+  this.taskList = [];
+  this.currentRunningTasksCount = 0;
+  this.concurrency = concurrency;
+}
+
+TaskRunner.prototype.taskCompleteNotifier = function () {
+  this.currentRunningTasksCount--;
+  this.run();
+  console.log("Done");
+};
+
+TaskRunner.prototype.run = function () {
+  while (
+    this.currentRunningTasksCount < this.concurrency &&
+    this.taskList.length
+  ) {
+    this.currentRunningTasksCount++;
+    this.taskList.shift()(this.taskCompleteNotifier.bind(this));
+  }
+};
+
+TaskRunner.prototype.push = function (task) {
+  this.taskList.push(task);
+  this.run();
+};
+
+function asyncTask(done) {
+  setTimeout(done, Math.random() * 2000);
+}
+
+const runner = new TaskRunner(3);
+
+runner.push(asyncTask);
+runner.push(asyncTask);
+runner.push(asyncTask);
+runner.push(asyncTask);
+runner.push(asyncTask);
+```
